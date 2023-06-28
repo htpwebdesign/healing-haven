@@ -21,6 +21,13 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
+			get_template_part( 'template-parts/content', 'page' );
+
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
 			
 			if ( function_exists( 'get_field' ) ) {
 
@@ -45,20 +52,48 @@ get_header();
 
 				}
 
-				$accordion = get_field( 'accordion' );
+				$policies = get_field( 'policies' );
 
-				if( $accordion ) {
-					echo do_shortcode( $accordion );
-				}
+				if ( $policies ) :
+					?>
+
+					<h2>Policies</h2>
+					<div class="accordion">
+
+					<?php
+
+					$index = 0;
+
+					foreach ( $policies as $policy ) {
+						$policy_title = $policy['policy_title'];
+						$policy_parag = $policy['policy_paragraph'];
+
+						if( $policy_title && $policy_parag ) :
+							?>
+
+							<div class="accordion-item">
+								<h3 class="accordion-title" data-index="<?php echo $index; ?>"><?php echo $policy_title; ?>
+									<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                  </svg>
+								</h3>
+								
+								<div class="accordion-content" data-index="<?php echo $index; ?>"><?php echo $policy_parag; ?></div>
+							</div> <!-- Close accordion-item -->
+
+							<?php
+
+							$index++;
+
+						endif;
+					}
+					?>
+						
+					</div> <!-- Close accordion -->
+
+					<?php
+				endif;
 			}
-	
-
-			// get_template_part( 'template-parts/content', 'page' );
-
-			// // If comments are open or we have at least one comment, load up the comment template.
-			// if ( comments_open() || get_comments_number() ) :
-			// 	comments_template();
-			// endif;
 
 		endwhile; // End of the loop.
 		?>
