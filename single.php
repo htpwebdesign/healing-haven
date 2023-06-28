@@ -24,7 +24,17 @@ get_header();
 					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'healing-haven' ) . '</span> <span class="nav-title">%title</span>',
 				)
 			);
+			?>
 
+			<!-- Display Popular services -->
+			<section class="single-popular-services">
+				<h2>Popular Services</h2>
+				<div class='popular-services-carousel'>
+					<?php get_template_part( 'template-parts/popular', 'services' ); ?>
+				</div>
+			</section>
+
+			<?php
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
@@ -36,5 +46,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
