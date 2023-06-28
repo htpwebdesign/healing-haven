@@ -32,12 +32,83 @@ get_header();
 			while ( have_posts() ) :
 				the_post();
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				<section class="home-intro">
+					<?php 
+					if ( function_exists( 'get_field' ) ) {
+						if ( get_field( 'slogan' ) ) { ?>
+							<h2><?php the_field( 'slogan' ); ?></h2>
+						<?php
+						}
+						if ( get_field( 'about_clinic_home' ) ) { ?>
+							<p><?php the_field( 'about_clinic_home' ); ?></p>
+						<?php
+						}
+					}
+					?>
+				</section>
+
+				<section class="home-popular-services">
+					<h2>Popular Services</h2>
+					<?php get_template_part( 'template-parts/popular', 'services' ); ?>
+				</section>
+
+				<section class="home-testimonials">
+					<h2>Testimonials</h2>
+					<?php 
+					$args = array (
+						'post_type' => 'hhm-testimonial',
+						'posts_per_page' => 3,
+						'orderby' => 'rand',
+					);
+
+					$query = new WP_Query( $args );
+					if ( $query->have_posts() ) {
+						while( $query->have_posts() ) {
+							$query->the_post();
+							the_content();
+						};
+						wp_reset_postdata();
+					}
+					?>
+				</section>
+
+				<section class="home-blog">
+					<h2>Recent Blog Posts</h2>
+					<?php 
+					$args = array(
+						'post_type' => 'post',
+						'posts_per_page' => 3
+					);
+					$blog_query = new WP_Query( $args );
+					if ( $blog_query -> have_posts() ) {
+						while ( $blog_query -> have_posts() ) {
+							$blog_query -> the_post();
+							?>
+							<article>
+								<?php the_post_thumbnail( 'thumbnail' ); ?>
+								<h3><?php the_title(); ?></h3>
+								<p><?php echo get_the_date(); ?></p>
+								<p><?php the_excerpt(); ?></p>
+								<a href="<?php the_permalink() ?>"><p>Read More</p></a>
+							</article>
+							<?php
+						}
+						wp_reset_postdata();
+					}
+					?>
+					<a href="<?php the_permalink(57) ?>"><p>Check out other posts</p></a>
+				</section>
+
+				<section class="instagram">
+					<h2>Check out our instagram</h2>
+					<?php 
+					if ( function_exists( 'get_field' ) ) {
+						if ( get_field( 'instagram' ) ) {
+							the_field('instagram');
+						};
+					};
+					?>
+				</section>
 
 			endwhile;
 
