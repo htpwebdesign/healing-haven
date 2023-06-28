@@ -204,7 +204,43 @@ function healing_haven_shop_page(){
 	// remove read more
 	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 
+	// Change title display to only show time for service
+	function healing_haven_products_title()
+    {
+		global $product;
+    
+		// Get the category names for the product
+		$category_names = wp_get_post_terms( $product->get_id(), 'product_cat', array( 'fields' => 'names' ) );
+	
+		// Get the product title
+		$product_title = $product->get_name();
+	
+		// Remove the matching category name from the product title
+		foreach ( $category_names as $category_name ) {
+			$product_title = str_replace( $category_name, '', $product_title );
+		}
+	
+		// Trim extra spaces from the modified product title
+		$product_title = trim( $product_title );
+	
+		// Output the modified product title
+		echo '<h2 class="woocommerce-loop-product__title">' . esc_html( $product_title ) . '</h2>';
 
+    }
+
+    add_action(
+        'woocommerce_after_shop_loop_item',
+        'healing_haven_products_title',
+        11
+    );
+
+	// remove unnecessary content from top of page
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+
+	
 
 }
 
