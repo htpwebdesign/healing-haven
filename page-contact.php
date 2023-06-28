@@ -60,13 +60,12 @@ get_header();
 
 		<?php
 		if ($google_map) {
-			print_r($google_map);
 			$address = $google_map['address'];
 			$zoom = $google_map['zoom'];
 
 			?>
 			<div class="contact-form-map">
-				 <div class="acf-map" data-zoom="16">
+				 <div class="acf-map" data-zoom="<?php echo esc_attr($zoom); ?>">
 					<div class="marker" data-lat="<?php echo esc_attr($google_map['lat']); ?>" data-lng="<?php echo esc_attr($google_map['lng']); ?>">
 					</div>
 				</div>
