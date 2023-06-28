@@ -11,8 +11,8 @@
 
 <?php 
 	if ( function_exists( 'get_field' ) ) {
-		if ( get_field( 'popular_services' ) ) { 
-			$popular_services = get_field('popular_services'); ?>
+		if ( get_field( 'popular_services', 32 ) ) { 
+			$popular_services = get_field('popular_services', 32); ?>
 
 			<ul>
 			<?php foreach( $popular_services as $popular_service) {

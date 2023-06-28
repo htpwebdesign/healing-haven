@@ -26,7 +26,13 @@ get_header();
 			);
 			?>
 
-
+			<!-- Display Popular services -->
+			<section class="single-popular-services">
+				<h2>Popular Services</h2>
+				<div class='popular-services-carousel'>
+					<?php get_template_part( 'template-parts/popular', 'services' ); ?>
+				</div>
+			</section>
 
 			<?php
 			// If comments are open or we have at least one comment, load up the comment template.
@@ -36,11 +42,6 @@ get_header();
 
 		endwhile; // End of the loop.
 		?>
-	
-		<!-- Display Popular services -->
-		<div>
-			<?php get_template_part( 'template-parts/popular', 'services' ); ?>
-		</div>
 
 	</main><!-- #main -->
 
