@@ -205,6 +205,19 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 
+// Remove "Archives:" from the title
+function fwd_archive_title_prefix( $prefix ){
+	if ( get_post_type() === 'hhm-therapists' ) {
+			return false;
+	} else {
+			return $prefix;
+	}
+}
+add_filter( 'get_the_archive_title_prefix', 'fwd_archive_title_prefix' );
+
+// To remove the prefix for all archives on the site...
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
+
 // Add google api key
 function my_acf_init() {
     
@@ -212,3 +225,4 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
