@@ -212,3 +212,10 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
+// Change excerpt more to a link
+function fwd_excerpt_more( $more ) {
+	$more = '... <a class="read-more" href="'. esc_url(get_permalink() ).'">'. __('Read More', 'hhm').'</a>';
+	return $more;
+}
+add_filter( 'excerpt_more', 'fwd_excerpt_more' );
