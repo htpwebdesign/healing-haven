@@ -24,15 +24,14 @@ get_header();
 					$hero_image_size = 'full';
 					echo wp_get_attachment_image( $hero_image, $hero_image_size );
 				};
-				if ( get_field('welcome_message') ) {
-					echo '<p>';
-					the_field( 'welcome_message' );
-					echo '</p>';
+				if ( get_field('welcome_message') ) { ?>
+					<p> <?php the_field( 'welcome_message' ); ?></p>
+				
+				<?php 
 				}
-				if ( get_field('welcome_message_2') ) {
-					echo '<h1>';
-					the_field( 'welcome_message_2' );
-					echo '</h1>';
+				if ( get_field('welcome_message_2') ) { ?>
+					<h1><?php the_field( 'welcome_message_2' ); ?></h1>
+				<?php
 				}
 			};
 			?>
@@ -49,15 +48,13 @@ get_header();
 				<section class="home-intro">
 					<?php 
 					if ( function_exists( 'get_field' ) ) {
-						if ( get_field( 'slogan' ) ) {
-							echo '<h2>';
-							the_field( 'slogan' );
-							echo '</h2>';
+						if ( get_field( 'slogan' ) ) { ?>
+							<h2><?php the_field( 'slogan' ); ?></h2>
+						<?php
 						}
-						if ( get_field( 'about_clinic_home' ) ) {
-							echo '<p>';
-							the_field( 'about_clinic_home' );
-							echo '</p>';
+						if ( get_field( 'about_clinic_home' ) ) { ?>
+							<p><?php the_field( 'about_clinic_home' ); ?></p>
+						<?php
 						}
 					}
 					?>
