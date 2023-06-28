@@ -14,7 +14,6 @@
 
 get_header();
 ?>
-
 	<main id="primary" class="site-main">
 
 		<?php
@@ -27,6 +26,8 @@ get_header();
 		$clinic_email = get_field('clinic_email');
 		$clinic_address = get_field('address');
 		$google_map = get_field('address_map');
+		$map_api = 'AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08';
+		
 			
 		if ($phone_number) {
 			?>
@@ -36,6 +37,7 @@ get_header();
 			<?php
 		}
 		?>
+
 		<?php
 		if ($clinic_email) {
 			?>
@@ -45,6 +47,7 @@ get_header();
 			<?php
 		}
 		?>
+
 		<?php
 		if ($clinic_address) {
 			?>
@@ -54,24 +57,24 @@ get_header();
 			<?php
 		}
 		?>
+
 		<?php
 		if ($google_map) {
+			print_r($google_map);
+			$address = $google_map['address'];
+			$zoom = $google_map['zoom'];
+
 			?>
 			<div class="contact-form-map">
-				<?php echo $google_map; ?>
+				 <div class="acf-map" data-zoom="16">
+					<div class="marker" data-lat="<?php echo esc_attr($google_map['lat']); ?>" data-lng="<?php echo esc_attr($google_map['lng']); ?>">
+					</div>
+				</div>
 			</div>
-			<?php
-		}
-		?>
 		<?php
-		if ($contact_field) {
-			?>
-			<div class="contact-form-intro">
-				<?php echo $contact_field; ?>
-			</div>
-			<?php
 		}
 		?>
+
 		<?php
 		if ($contact_field) {
 			?>

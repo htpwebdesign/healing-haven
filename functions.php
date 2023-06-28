@@ -149,6 +149,14 @@ function healing_haven_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
+function enqueue_map_script() {
+    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08&callback=Function.prototype', array(), null, true);
+    wp_enqueue_script('custom-map-script', get_template_directory_uri() . '/js/map.js', array('jquery'), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_map_script');
+
+
+
 /**
 * Custom Post Types & Taxonomies
 */
@@ -187,3 +195,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+// Add google api key
+function my_acf_init() {
+    
+    acf_update_setting('google_api_key', 'AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08');
+}
+
+add_action('acf/init', 'my_acf_init');
