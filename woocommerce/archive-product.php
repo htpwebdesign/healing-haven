@@ -51,6 +51,9 @@ do_action( 'woocommerce_before_main_content' );
 
 	if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		foreach ( $categories as $category ) {
+			if ($category->name == 'Uncategorized'){
+				continue;
+			}
 			// Output category name
 			echo '<h2>' . esc_html( $category->name ) . '</h2>';
 			echo '<p>' . esc_html( $category->description ) . '</p>';
@@ -102,12 +105,7 @@ do_action( 'woocommerce_before_main_content' );
 					else
 						echo `$`.$price. ' ';
 
-
-
 					// wc_get_template_part( 'content', 'product' ); 
-
-					
-
 
 				}
 			} else {
