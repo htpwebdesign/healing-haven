@@ -187,3 +187,27 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+// Remove the category count for WooCommerce categories
+add_filter( 'woocommerce_subcategory_count_html', '__return_null' );
+
+// shop / services / products page
+function healing_haven_shop_page(){
+
+
+	// remove product images from shop page
+	remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+	
+	// remove product title 
+	remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+
+	// remove read more
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+
+
+
+}
+
+add_action( 'init', 'healing_haven_shop_page' );
+
+
