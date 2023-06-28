@@ -33,6 +33,7 @@ do_action( 'woocommerce_before_main_content' );
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 	<?php endif; ?>
+</header>
 
 	<?php
 	/**
@@ -43,6 +44,8 @@ do_action( 'woocommerce_before_main_content' );
 	 */
 	do_action( 'woocommerce_archive_description' );
 
+	?> 
+<?php
 	// Get all product categories
 	$categories = get_terms( array(
 		'taxonomy'   => 'product_cat',
@@ -50,22 +53,41 @@ do_action( 'woocommerce_before_main_content' );
 	) );
 
 	if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
+
 		foreach ( $categories as $category ) {
+
 			if ($category->name == 'Uncategorized'){
 				continue;
 			}
+
 			// Output category name
+			echo '<div class="service-section '.$category->term_id.'">';
 			echo '<h2>' . esc_html( $category->name ) . '</h2>';
 			echo '<p>' . esc_html( $category->description ) . '</p>';
-
+			
 			// Get the category featured image
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
 			$image_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-	
+			
 			if ($image_url) {
 				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($category->name) . '">';
 			}
+			
+			if ( function_exists( 'get_field' ) ) {
+				
+				if ( get_field( 'service_categories', $category ) ) {
 
+					echo "Offered By: ";
+					
+					$therapists = get_field( 'service_categories', $category  );
+
+					foreach ($therapists as $id) {
+						$title = get_the_title($id);
+						echo $title . '<br>';
+					}
+
+				};
+			}
 			
 
 			// Get the products in the current category
@@ -105,21 +127,23 @@ do_action( 'woocommerce_before_main_content' );
 					else
 						echo `$`.$price. ' ';
 
-					// wc_get_template_part( 'content', 'product' ); 
+
 
 				}
 			} else {
 				echo 'No products found.';
 			}
+			echo '</div>';
 
 			// Restore global post data
 			wp_reset_postdata();
 		}
+
+
 	} else {
 		echo 'No categories found.';
 	}
 	?>
-</header>
 
 <?php
 
