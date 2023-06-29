@@ -54,6 +54,24 @@ do_action( 'woocommerce_before_main_content' );
 
 	if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 
+		?>
+			 <nav class="category-nav">
+				<h2 class="subnav-title">Explore Our Massages</h2>
+			 <ul>
+		<?php
+	
+		foreach ( $categories as $category ) {
+			if ( $category->name == 'Uncategorized' ) {
+				continue;
+			}
+	
+			echo '<li><a href="#category-' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
+		}
+	
+		echo '</ul>';
+		echo '</nav>';
+
+
 		foreach ( $categories as $category ) {
 
 			if ($category->name == 'Uncategorized'){
@@ -61,7 +79,7 @@ do_action( 'woocommerce_before_main_content' );
 			}
 
 			// Output category name
-			echo '<div class="service-section '.$category->term_id.'">';
+			echo '<section class="service-section '.$category->term_id.'" id="category-'.$category->term_id.'">';
 			echo '<h2 class="service-title">' . esc_html( $category->name ) . '</h2>';
 			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
 			
@@ -140,7 +158,7 @@ do_action( 'woocommerce_before_main_content' );
 			} else {
 				echo 'No products found.';
 			}
-			echo '</div>';
+			echo '</section>';
 
 
 			wp_reset_postdata();
