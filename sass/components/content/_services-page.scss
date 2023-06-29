@@ -2,52 +2,69 @@
     display: none;
 }
 
-.services-page-wrapper{
 
-    .services-wrapper{
+.services-wrapper{
+    h2, h3{
+        text-align: center;
+    }
 
-        .service-section{
+    .service-section{
+        margin-bottom: 2rem;
 
-            .services-staff{
-                display: flex;
-
-                .services-staff-title{
-                    padding-right: 0.5rem;
-                }
-
-                .therapist-list{
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-
-                    li{
-                        padding: 0.5rem;
-                    }
-                }
-            }
+        h2{
+            margin-bottom: 0;
         }
 
-        .prices-wrapper{
-            .price-list{
+        p{
+            margin-bottom: 0.5rem;
+        }
+        .services-staff{
+            display: flex;
+            justify-content: center;
+            margin-right: 3.2rem;
+            @media (min-width: 27rem) {
+                margin-right: 0;
+                justify-content: flex-start;
+            }
+            .services-staff-title{
+                padding-right: 0.5rem;
+                min-width: 6rem;
+            }
+            .therapist-list{
                 list-style: none;
                 margin: 0;
                 padding: 0;
                 display: flex;
+                flex-wrap: wrap;
                 flex-direction: column;
-                align-items: center;
-
-                li {
+                @media (min-width: 27rem) {
+                    flex-direction: row;
+                }
+                li{
                     padding: 0.5rem;
-
-                    a{
-                        padding: 0.5rem;
-                    }
                 }
             }
         }
-
-
-
     }
 
+    .prices-wrapper{
+
+        .price-list{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            @media (min-width: 24rem) {
+                flex-direction: row;
+            }
+
+            li {
+                padding: 0.5rem;
+            }
+        }
+    }
 }

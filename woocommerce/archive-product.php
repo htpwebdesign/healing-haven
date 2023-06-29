@@ -85,45 +85,7 @@ do_action( 'woocommerce_before_main_content' );
 			// Output category name
 			echo '<section class="service-section '.$category->term_id.'" id="category-'.$category->term_id.'">';
 			echo '<h2 class="service-title">' . esc_html( $category->name ) . '</h2>';
-			
-			// Get the category featured image
-			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-			$image_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-			
-			if ($image_url) {
-				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($category->name) . '">';
-			}
 
-			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
-			
-			if ( function_exists( 'get_field' ) ) {
-				
-				if ( get_field( 'service_categories', $category ) ) {
-					?>
-
-					<div class='services-staff'>
-						<div class='services-staff-title'>Offered By: </div>
-						<ul class='therapist-list'>
-		
-					<?php
-					$therapists = get_field( 'service_categories', $category  );
-
-					foreach ($therapists as $id) {
-						$title = get_the_title($id);
-						$staffLink = get_the_permalink($id);
-						
-						?> <li> <?php
-						echo "<a href='$staffLink'>";
-						echo $title;
-						?>
-						</a></li>
-						<?php
-					}
-					?>
-					</ul></div>
-					<?php
-				};
-			}
 
 			// Get the products in the current category
 			$products = new WP_Query( array(
@@ -173,6 +135,48 @@ do_action( 'woocommerce_before_main_content' );
 			} else {
 				echo 'No products found.';
 			}
+
+
+			
+			// Get the category featured image
+			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+			$image_url = wp_get_attachment_image_url($thumbnail_id, 'full');
+			
+			if ($image_url) {
+				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($category->name) . '">';
+			}
+
+			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
+			
+			if ( function_exists( 'get_field' ) ) {
+				
+				if ( get_field( 'service_categories', $category ) ) {
+					?>
+
+					<div class='services-staff'>
+						<div class='services-staff-title'>Offered By: </div>
+						<ul class='therapist-list'>
+		
+					<?php
+					$therapists = get_field( 'service_categories', $category  );
+
+					foreach ($therapists as $id) {
+						$title = get_the_title($id);
+						$staffLink = get_the_permalink($id);
+						
+						?> <li> <?php
+						echo "<a href='$staffLink'>";
+						echo $title;
+						?>
+						</a></li>
+						<?php
+					}
+					?>
+					</ul></div>
+					<?php
+				};
+			}
+
 			echo '</section>';
 
 
