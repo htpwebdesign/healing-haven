@@ -1,0 +1,70 @@
+.woocommerce-breadcrumbs{
+    display: none;
+}
+
+
+.services-wrapper{
+    h2, h3{
+        text-align: center;
+    }
+
+    .service-section{
+        margin-bottom: 2rem;
+
+        h2{
+            margin-bottom: 0;
+        }
+
+        p{
+            margin-bottom: 0.5rem;
+        }
+        .services-staff{
+            display: flex;
+            justify-content: center;
+            margin-right: 3.2rem;
+            @media (min-width: 27rem) {
+                margin-right: 0;
+                justify-content: flex-start;
+            }
+            .services-staff-title{
+                padding-right: 0.5rem;
+                min-width: 6rem;
+            }
+            .therapist-list{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                @media (min-width: 27rem) {
+                    flex-direction: row;
+                }
+                li{
+                    padding: 0.5rem;
+                }
+            }
+        }
+    }
+
+    .prices-wrapper{
+
+        .price-list{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            @media (min-width: 24rem) {
+                flex-direction: row;
+            }
+
+            li {
+                padding: 0.5rem;
+            }
+        }
+    }
+}

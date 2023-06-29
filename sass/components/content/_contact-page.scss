@@ -1,0 +1,27 @@
+.page-id-37 {
+    .site-main{
+        margin-top: 3rem;
+        text-align: center;
+        .contact-form-map{
+            .acf-map{
+              width: 100%;
+                height: 400px;
+                border: #ccc solid 1px;
+                margin: 20px 0; 
+                & img{
+                    max-width: inherit !important;
+                }
+            }
+        }
+        .post-37{
+            .entry-content{
+                .gform_description{
+                    // text-align: left;
+                }
+                .gfield_description{
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

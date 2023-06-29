@@ -1,3 +1,33 @@
+#post-34 {
+
+  .about {
+    margin-bottom: 5rem;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+
+  @media (min-width: 50em) {
+    .entry-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem 5rem;
+
+      .about.culture,
+      .about.history {
+        grid-column: span 1;
+      }
+
+      .about.policies {
+        grid-column: span 2;
+      }
+    }
+  }
+
+}
+
+
 .accordion {
   margin-bottom: 1rem;
 
@@ -39,9 +69,16 @@
 
   ul {
     margin: 0;
+    padding-bottom: 2rem;
   }
 
   &.active {
     display: block;
   }
 }
+
+.link-button {
+  @include link-button;
+}
+
+

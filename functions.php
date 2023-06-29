@@ -147,6 +147,24 @@ function healing_haven_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Enqueue accordion on the About page
+	wp_enqueue_script(
+		'accordion-scripts',
+		get_template_directory_uri() .'/js/accordion.js',
+		array(),
+		_S_VERSION,
+		true
+	);
+
+	// Enqueue services-nav on the Services page
+	wp_enqueue_script(
+		'services-nav-scripts',
+		get_template_directory_uri() .'/js/services-nav.js',
+		array(),
+		null,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
@@ -199,3 +217,16 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 // Remove the category count for WooCommerce categories
 add_filter( 'woocommerce_subcategory_count_html', '__return_null' );
+
+// Remove "Archives:" from the title
+function fwd_archive_title_prefix( $prefix ){
+	if ( get_post_type() === 'hhm-therapists' ) {
+			return false;
+	} else {
+			return $prefix;
+	}
+}
+add_filter( 'get_the_archive_title_prefix', 'fwd_archive_title_prefix' );
+
+// To remove the prefix for all archives on the site...
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );

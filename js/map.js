@@ -395,6 +395,9 @@ function initMap( $el ) {
         "stylers": [
             {
                 "visibility": "off"
+            },
+            {
+                "color": "#6a615f"
             }
         ]
     }

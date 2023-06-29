@@ -7,5 +7,29 @@
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+	width: map-get($columns, $numberColumns) - calc(($columns__margin * ($numberColumns - 1)) / $numberColumns);
+}
+
+@mixin link-button {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+	margin: 2rem;
+	
+	a {
+    text-decoration: none;
+    color: $color__text-main;
+    text-transform: uppercase;
+    font-size: .8rem;
+    padding: 1.2rem 2rem;
+    border: 1px solid $color__text-main;
+    border-radius: 3px;
+		text-align: center;
+
+    &:hover {
+			color: #fff;
+      border-color: $color__button-link-hover;
+      background-color: $color__button-link-hover;
+    }
+  }
 }

@@ -34,6 +34,7 @@ do_action( 'woocommerce_before_main_content' );
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 	<?php endif; ?>
 </header>
+<div class="services-page-wrapper">
 
 	<?php
 	/**
@@ -54,6 +55,27 @@ do_action( 'woocommerce_before_main_content' );
 
 	if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 
+		?>
+			 <nav class="category-nav">
+				<h3 class="subnav-title">Explore Our Massages</h3>
+			 <ul class='dropdown'>
+		<?php
+	
+		foreach ( $categories as $category ) {
+			if ( $category->name == 'Uncategorized' ) {
+				continue;
+			}
+	
+			echo '<li><a href="#category-' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
+		}
+	
+		?>
+			</ul>
+			</nav>
+			<div class="services-wrapper">
+
+		<?php
+
 		foreach ( $categories as $category ) {
 
 			if ($category->name == 'Uncategorized'){
@@ -61,34 +83,9 @@ do_action( 'woocommerce_before_main_content' );
 			}
 
 			// Output category name
-			echo '<div class="service-section '.$category->term_id.'">';
-			echo '<h2>' . esc_html( $category->name ) . '</h2>';
-			echo '<p>' . esc_html( $category->description ) . '</p>';
-			
-			// Get the category featured image
-			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-			$image_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-			
-			if ($image_url) {
-				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($category->name) . '">';
-			}
-			
-			if ( function_exists( 'get_field' ) ) {
-				
-				if ( get_field( 'service_categories', $category ) ) {
+			echo '<section class="service-section '.$category->term_id.'" id="category-'.$category->term_id.'">';
+			echo '<h2 class="service-title">' . esc_html( $category->name ) . '</h2>';
 
-					echo "Offered By: ";
-					
-					$therapists = get_field( 'service_categories', $category  );
-
-					foreach ($therapists as $id) {
-						$title = get_the_title($id);
-						echo $title . '<br>';
-					}
-
-				};
-			}
-			
 
 			// Get the products in the current category
 			$products = new WP_Query( array(
@@ -105,6 +102,11 @@ do_action( 'woocommerce_before_main_content' );
 			) );
 
 			if ( $products->have_posts() ) {
+				?>
+				<div class="prices-wrapper">
+					<ul class="price-list">
+				<?php
+
 				while ( $products->have_posts() ) {
 					$products->the_post();
 
@@ -112,30 +114,72 @@ do_action( 'woocommerce_before_main_content' );
 					$price = $product->get_price();
 					$permalink = $product->get_permalink();
 
-					// Output product details
 					if ($product->is_type('booking')) {
 						
-						// Get the booking duration in minutes
 						$duration = $product->get_duration();
-					
-						// Display the duration
-						echo "<a href='$permalink'>";
-						echo $duration . ' minutes ';
-						echo `$`.$price. ' ';
-						echo "</a>";
+						?>
+						<li>
+						<a href='<?php $permalink ?>'>
+						<?php
+						echo $duration . ' min - ';
+						echo '$'.$price. ' ';
+						?>
+							</a></li>
+						<?php
 					}
 					else
 						echo `$`.$price. ' ';
-
-
-
 				}
+				echo '</div>';
+
 			} else {
 				echo 'No products found.';
 			}
-			echo '</div>';
 
-			// Restore global post data
+
+			
+			// Get the category featured image
+			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
+			$image_url = wp_get_attachment_image_url($thumbnail_id, 'full');
+			
+			if ($image_url) {
+				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($category->name) . '">';
+			}
+
+			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
+			
+			if ( function_exists( 'get_field' ) ) {
+				
+				if ( get_field( 'service_categories', $category ) ) {
+					?>
+
+					<div class='services-staff'>
+						<div class='services-staff-title'>Offered By: </div>
+						<ul class='therapist-list'>
+		
+					<?php
+					$therapists = get_field( 'service_categories', $category  );
+
+					foreach ($therapists as $id) {
+						$title = get_the_title($id);
+						$staffLink = get_the_permalink($id);
+						
+						?> <li> <?php
+						echo "<a href='$staffLink'>";
+						echo $title;
+						?>
+						</a></li>
+						<?php
+					}
+					?>
+					</ul></div>
+					<?php
+				};
+			}
+
+			echo '</section>';
+
+
 			wp_reset_postdata();
 		}
 
@@ -144,6 +188,8 @@ do_action( 'woocommerce_before_main_content' );
 		echo 'No categories found.';
 	}
 	?>
+	</div>
+	</div>
 
 <?php
 
@@ -155,12 +201,6 @@ do_action( 'woocommerce_before_main_content' );
  */
 do_action( 'woocommerce_after_main_content' );
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
 
 get_footer( 'shop' );
 
