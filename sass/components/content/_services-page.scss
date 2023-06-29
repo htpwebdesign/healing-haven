@@ -1,0 +1,53 @@
+.woocommerce-breadcrumbs{
+    display: none;
+}
+
+.services-page-wrapper{
+
+    .services-wrapper{
+
+        .service-section{
+
+            .services-staff{
+                display: flex;
+
+                .services-staff-title{
+                    padding-right: 0.5rem;
+                }
+
+                .therapist-list{
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li{
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        .prices-wrapper{
+            .price-list{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                li {
+                    padding: 0.5rem;
+
+                    a{
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+
+
+
+    }
+
+}

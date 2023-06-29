@@ -34,6 +34,7 @@ do_action( 'woocommerce_before_main_content' );
 		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
 	<?php endif; ?>
 </header>
+<div class="services-page-wrapper">
 
 	<?php
 	/**
@@ -68,9 +69,12 @@ do_action( 'woocommerce_before_main_content' );
 			echo '<li><a href="#category-' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
 		}
 	
-		echo '</ul>';
-		echo '</nav>';
+		?>
+			</ul>
+			</nav>
+			<div class="services-wrapper">
 
+		<?php
 
 		foreach ( $categories as $category ) {
 
@@ -95,25 +99,31 @@ do_action( 'woocommerce_before_main_content' );
 			if ( function_exists( 'get_field' ) ) {
 				
 				if ( get_field( 'service_categories', $category ) ) {
+					?>
 
-					echo "<div class='services-staff'><div class='services-staff-title'>Offered By: </div>";
-					
+					<div class='services-staff'>
+						<div class='services-staff-title'>Offered By: </div>
+						<ul class='therapist-list'>
+		
+					<?php
 					$therapists = get_field( 'service_categories', $category  );
 
 					foreach ($therapists as $id) {
 						$title = get_the_title($id);
 						$staffLink = get_the_permalink($id);
 						
-						
+						?> <li> <?php
 						echo "<a href='$staffLink'>";
 						echo $title;
-						echo "</a>";
+						?>
+						</a></li>
+						<?php
 					}
-					echo '<br></div>';
-
+					?>
+					</ul></div>
+					<?php
 				};
 			}
-			
 
 			// Get the products in the current category
 			$products = new WP_Query( array(
@@ -130,8 +140,10 @@ do_action( 'woocommerce_before_main_content' );
 			) );
 
 			if ( $products->have_posts() ) {
-
-				echo '<div class="prices-wrapper">';
+				?>
+				<div class="prices-wrapper">
+					<ul class="price-list">
+				<?php
 
 				while ( $products->have_posts() ) {
 					$products->the_post();
@@ -140,16 +152,18 @@ do_action( 'woocommerce_before_main_content' );
 					$price = $product->get_price();
 					$permalink = $product->get_permalink();
 
-					// Output product details
 					if ($product->is_type('booking')) {
 						
-						// Get the booking duration in minutes
 						$duration = $product->get_duration();
-					
-						echo "<a href='$permalink'>";
+						?>
+						<li>
+						<a href='<?php $permalink ?>'>
+						<?php
 						echo $duration . ' min - ';
 						echo '$'.$price. ' ';
-						echo "</a>";
+						?>
+							</a></li>
+						<?php
 					}
 					else
 						echo `$`.$price. ' ';
@@ -170,6 +184,8 @@ do_action( 'woocommerce_before_main_content' );
 		echo 'No categories found.';
 	}
 	?>
+	</div>
+	</div>
 
 <?php
 
