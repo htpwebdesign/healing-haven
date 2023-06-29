@@ -16,34 +16,21 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<header>
-			<?php 
-			if ( function_exists( 'get_field' ) ) {
-				if ( get_field( 'hero_image' ) ) {
-					$hero_image = get_field( 'hero_image' );
-					$hero_image_size = 'full';
-					echo wp_get_attachment_image( $hero_image, $hero_image_size );
-				};
-				if ( get_field('welcome_message') ) { ?>
-					<p> <?php the_field( 'welcome_message' ); ?></p>
-				
-				<?php 
-				}
-				if ( get_field('welcome_message_2') ) { ?>
-					<h1><?php the_field( 'welcome_message_2' ); ?></h1>
-				<?php
-				}
-			};
-			?>
-		</header>
 
 		<?php
 		if ( have_posts() ) :
-			
+
+			if ( is_home() && ! is_front_page() ) :
+				?>
+				<header>
+					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				</header>
+				<?php
+			endif;
+
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
-				?>
 
 				<section class="home-intro">
 					<?php 
@@ -123,8 +110,9 @@ get_header();
 					?>
 				</section>
 
-			<?php
 			endwhile;
+
+			the_posts_navigation();
 
 		else :
 
@@ -136,4 +124,5 @@ get_header();
 	</main><!-- #main -->
 
 <?php
+get_sidebar();
 get_footer();
