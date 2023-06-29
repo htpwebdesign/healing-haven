@@ -146,6 +146,15 @@ function healing_haven_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Enqueue accordion on the About page
+	wp_enqueue_script(
+		'accordion-scripts',
+		get_template_directory_uri() .'/js/accordion.js',
+		array(),
+		_S_VERSION,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
