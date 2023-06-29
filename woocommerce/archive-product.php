@@ -62,8 +62,8 @@ do_action( 'woocommerce_before_main_content' );
 
 			// Output category name
 			echo '<div class="service-section '.$category->term_id.'">';
-			echo '<h2>' . esc_html( $category->name ) . '</h2>';
-			echo '<p>' . esc_html( $category->description ) . '</p>';
+			echo '<h2 class="service-title">' . esc_html( $category->name ) . '</h2>';
+			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
 			
 			// Get the category featured image
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
@@ -77,14 +77,20 @@ do_action( 'woocommerce_before_main_content' );
 				
 				if ( get_field( 'service_categories', $category ) ) {
 
-					echo "Offered By: ";
+					echo "<div class='services-staff'><div class='services-staff-title'>Offered By: </div>";
 					
 					$therapists = get_field( 'service_categories', $category  );
 
 					foreach ($therapists as $id) {
 						$title = get_the_title($id);
-						echo $title . '<br>';
+						$staffLink = get_the_permalink($id);
+						
+						
+						echo "<a href='$staffLink'>";
+						echo $title;
+						echo "</a>";
 					}
+					echo '<br></div>';
 
 				};
 			}
@@ -105,6 +111,9 @@ do_action( 'woocommerce_before_main_content' );
 			) );
 
 			if ( $products->have_posts() ) {
+
+				echo '<div class="prices-wrapper">';
+
 				while ( $products->have_posts() ) {
 					$products->the_post();
 
@@ -118,24 +127,22 @@ do_action( 'woocommerce_before_main_content' );
 						// Get the booking duration in minutes
 						$duration = $product->get_duration();
 					
-						// Display the duration
 						echo "<a href='$permalink'>";
-						echo $duration . ' minutes ';
-						echo `$`.$price. ' ';
+						echo $duration . ' min - ';
+						echo '$'.$price. ' ';
 						echo "</a>";
 					}
 					else
 						echo `$`.$price. ' ';
-
-
-
 				}
+				echo '</div>';
+
 			} else {
 				echo 'No products found.';
 			}
 			echo '</div>';
 
-			// Restore global post data
+
 			wp_reset_postdata();
 		}
 
@@ -155,12 +162,6 @@ do_action( 'woocommerce_before_main_content' );
  */
 do_action( 'woocommerce_after_main_content' );
 
-/**
- * Hook: woocommerce_sidebar.
- *
- * @hooked woocommerce_get_sidebar - 10
- */
-do_action( 'woocommerce_sidebar' );
 
 get_footer( 'shop' );
 
