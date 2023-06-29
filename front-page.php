@@ -111,6 +111,7 @@ get_header();
 					?>
 				</section>
 
+			<?php
 			endwhile;
 
 			the_posts_navigation();
