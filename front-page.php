@@ -31,6 +31,7 @@ get_header();
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
+				?>
 
 				<section class="home-intro">
 					<?php 
@@ -49,7 +50,7 @@ get_header();
 
 				<section class="home-popular-services">
 					<h2>Popular Services</h2>
-					<?php get_template_part( 'template-parts/popular', 'services' ); ?>
+					<?php get_template_part( 'template-parts/popular-services' ); ?>
 				</section>
 
 				<section class="home-testimonials">
