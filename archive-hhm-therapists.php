@@ -37,14 +37,21 @@ get_header();
 				while( $query -> have_posts () ) {
 					$query -> the_post();
 				?>
-				<article class="therapist-item">
-						<?php the_post_thumbnail('small');?>
-						<h3><?php the_title(); ?></h3>
-						<p>Specialties:
-							<?php
-								echo get_the_term_list(get_the_ID(), 'hhm-specialties', '',' / ','');
-							?>
-						</p>
+				<article class="therapist-item">						
+					<?php the_post_thumbnail( 'portrait-therapist' );?>
+					<h3><?php the_title(); ?></h3>
+					<p>
+					<?php
+						$specialties = get_the_terms(get_the_ID(), 'hhm-specialties');
+						if ($specialties) {
+							$specialty_names = array();
+							foreach ($specialties as $specialty) {
+								$specialty_names[] = $specialty->name;
+							}
+							echo implode(' / ', $specialty_names);
+						}
+					?>
+					</p>
 
 						<?php
 						if ( function_exists( 'get_field' ) ) {
@@ -60,10 +67,12 @@ get_header();
 						}
 						?>
 						<div class="more-info">
-							<button>
 								<a href="<?php the_permalink(); ?>">
-								More Info</a>
-							</button>
+									More Info
+									<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+										<path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/>
+									</svg>
+								</a>
 						</div>
 				</article>
 				<?php

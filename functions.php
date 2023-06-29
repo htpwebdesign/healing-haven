@@ -46,6 +46,9 @@ function healing_haven_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+	// Portrait Therapists Size 
+	add_image_size( 'portrait-therapist', 400, 300, true );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(

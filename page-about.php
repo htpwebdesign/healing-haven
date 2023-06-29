@@ -107,9 +107,10 @@ get_header();
 		?>
 				</div><!-- .entry-content -->
 
-				
-				<div class="link-button">
-					<a href="<?php echo esc_url( home_url( '/therapists' ) ); ?>">Meet Our Team</a>
+				<div class="button-container">
+					<button class="link-button">
+						<a href="<?php echo esc_url( home_url( '/therapists' ) ); ?>"><span>Meet Our Team</span></a>
+					</button>
 				</div>
 
 		</article><!-- #post-<?php the_ID(); ?> -->
