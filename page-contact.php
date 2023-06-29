@@ -19,6 +19,8 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
+			$page_title = get_the_title();
+			echo "<h1 class='page-title'>$page_title</h1>"
 			?>
 		<?php
 		$contact_field = get_field('contact_form_intro');
@@ -84,9 +86,12 @@ get_header();
 		}
 		?>
 		<?php
+
+		gravity_form( 1, true,  false,  false, null, false,'', true );
+
 			the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+			// get_template_part( 'template-parts/content', 'page' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
