@@ -207,3 +207,16 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 // Remove the category count for WooCommerce categories
 add_filter( 'woocommerce_subcategory_count_html', '__return_null' );
+
+// Remove "Archives:" from the title
+function fwd_archive_title_prefix( $prefix ){
+	if ( get_post_type() === 'hhm-therapists' ) {
+			return false;
+	} else {
+			return $prefix;
+	}
+}
+add_filter( 'get_the_archive_title_prefix', 'fwd_archive_title_prefix' );
+
+// To remove the prefix for all archives on the site...
+add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
