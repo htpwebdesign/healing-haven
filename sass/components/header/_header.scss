@@ -5,6 +5,16 @@
     border-bottom: 1.5px solid #C1C1C1;
 }
 
+body.home.admin-bar .site-header {
+    top: 46px;
+}
+
+@media screen and (min-width: 48.9em) {
+    body.home.admin-bar .site-header {
+        top: 32px;
+    }
+}
+
 .site-branding {
     width: fit-content;
     padding: 18px 0px;
