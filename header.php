@@ -58,6 +58,14 @@
 					'menu_id'        => 'primary-menu',
 				)
 			);
+			wp_nav_menu(
+				array(
+					'theme_location' => 'header-right',
+					'menu_id'        => 'shop-menu',
+					'container_class' => 'menu-shop-container',
+				)
+			);
 			?>
+			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

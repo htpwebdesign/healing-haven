@@ -6,6 +6,7 @@
  */
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
+	const siteHeader = document.getElementById( 'masthead' );
 
 	// Return early if the navigation doesn't exist.
 	if ( ! siteNavigation ) {
@@ -34,6 +35,7 @@
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
+		siteHeader.classList.toggle( 'toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -48,6 +50,7 @@
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
+			siteHeader.classList.remove( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
@@ -94,6 +97,17 @@
 				}
 			}
 			menuItem.classList.toggle( 'focus' );
+		}
+	}
+
+	// Media query to remove toggle class on larger screens
+	const mediaQueryList = window.matchMedia('(min-width: 950px)');
+	mediaQueryList.addEventListener('change', removeToggle);
+
+	function removeToggle(e){
+		if(e.matches){
+			siteNavigation.classList.remove( 'toggled' );
+			siteHeader.classList.remove( 'toggled' );
 		}
 	}
 }() );

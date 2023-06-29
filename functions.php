@@ -50,6 +50,7 @@ function healing_haven_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'healing-haven' ),
+			'header-right' => esc_html__( 'Header - Right Side', 'healing-haven' ),
 		)
 	);
 

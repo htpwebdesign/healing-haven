@@ -6,20 +6,40 @@
 }
 
 .site-branding {
+    width: fit-content;
     padding: 18px 0px;
     p {
         margin: 0;
     }
 }
 
-@media screen and (min-width: 50em) {
+.home .site-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    border-color: #fff;
+    &.toggled {
+        background-color: #eeeeee;
+        border-color: $color__text-header;
+        .menu-toggle svg{
+            fill: $color__text-header;
+        }
+    }
+}
+
+@media screen and (min-width: 59.375em) {
     .site-header {
         display: grid;
-        grid-template-columns: 1fr minmax(auto, 12.5rem) minmax(auto, 50rem) 1fr;
+        // grid-template-columns: 1fr minmax(auto, 12.5rem) minmax(auto, 50rem) 1fr;
+        grid-template-columns: auto 1fr;
         align-items: center;
+        gap: 1rem;
+        padding: 0rem 2rem;
     }
 
     .site-branding {
-        grid-column: 2/3;
+        grid-column: 1/2;
     }
 }
