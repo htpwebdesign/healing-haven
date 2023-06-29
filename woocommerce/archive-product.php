@@ -56,8 +56,8 @@ do_action( 'woocommerce_before_main_content' );
 
 		?>
 			 <nav class="category-nav">
-				<h2 class="subnav-title">Explore Our Massages</h2>
-			 <ul>
+				<h3 class="subnav-title">Explore Our Massages</h3>
+			 <ul class='dropdown'>
 		<?php
 	
 		foreach ( $categories as $category ) {
@@ -81,7 +81,6 @@ do_action( 'woocommerce_before_main_content' );
 			// Output category name
 			echo '<section class="service-section '.$category->term_id.'" id="category-'.$category->term_id.'">';
 			echo '<h2 class="service-title">' . esc_html( $category->name ) . '</h2>';
-			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
 			
 			// Get the category featured image
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
@@ -90,6 +89,8 @@ do_action( 'woocommerce_before_main_content' );
 			if ($image_url) {
 				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($category->name) . '">';
 			}
+
+			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
 			
 			if ( function_exists( 'get_field' ) ) {
 				

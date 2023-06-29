@@ -155,6 +155,15 @@ function healing_haven_scripts() {
 		_S_VERSION,
 		true
 	);
+
+	// Enqueue services-nav on the Services page
+	wp_enqueue_script(
+		'services-nav-scripts',
+		get_template_directory_uri() .'/js/services-nav.js',
+		array(),
+		null,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
