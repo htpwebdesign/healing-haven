@@ -26,7 +26,7 @@ get_header();
 		$clinic_email = get_field('clinic_email');
 		$clinic_address = get_field('address');
 		$google_map = get_field('address_map');
-		$map_api = 'AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08';
+		
 		
 			
 		if ($phone_number) {
@@ -99,5 +99,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
