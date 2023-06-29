@@ -20,17 +20,22 @@ get_header();
 		<?php
 		while ( have_posts() ) :
 			the_post();
+		?>
 
-			get_template_part( 'template-parts/content', 'page' );
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<header class="entry-header">
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+				</header><!-- .entry-header -->
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+				<?php healing_haven_post_thumbnail(); ?>
 
-			
-			if ( function_exists( 'get_field' ) ) {
+			<?php
+			if ( function_exists( 'get_field' ) ) :
+			?>
 
+				<div class="entry-content">
+
+				<?php
 				$about_clinic = get_field( 'about_clinic' );
 
 				if ( $about_clinic ) {
@@ -40,12 +45,14 @@ get_header();
 						$title_about = $item['title_about'];
 						$about_parag = $item['about_paragraph'];
 
-						if( $title_about ) {
-							echo '<h2>' . esc_html( $title_about ) . '</h2>';
-						}
-
-						if( $about_parag ) {
-							echo '<p>' . esc_html( $about_parag ) . '</p>';
+						if( $title_about &&  $about_parag ) {
+						?>
+							<div class="about <?php echo esc_attr(strtolower( $title_about ));?>">
+								<h2><?php echo esc_html( $title_about ); ?></h2>
+								<p><?php echo esc_html( $about_parag ); ?></p>
+							</div>
+						
+						<?php
 						}
 
 					}
@@ -56,9 +63,9 @@ get_header();
 
 				if ( $policies ) :
 					?>
-
-					<h2>Policies</h2>
-					<div class="accordion">
+					<div class="about policies">
+						<h2>Policies</h2>
+						<div class="accordion">
 
 					<?php
 
@@ -89,17 +96,22 @@ get_header();
 					}
 					?>
 
-					</div> <!-- Close accordion -->
+						</div> <!-- Close accordion -->
+					</div>
 
 					<?php
 				endif;
-			}
+			endif;
 			
 		endwhile; // End of the loop.
 		?>
+				</div><!-- .entry-content -->
 
+				<button>
+					<a href="<?php echo esc_url( home_url( '/therapists' ) ); ?>">Meet Our Team</a>
+				</button>
+		</article><!-- #post-<?php the_ID(); ?> -->
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
