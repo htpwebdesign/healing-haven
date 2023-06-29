@@ -1,0 +1,48 @@
+/* Styles for the category nav */
+.category-nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .subnav-title {
+        cursor: pointer;
+        margin: 0;
+        width: 15rem;
+        border: solid 3px #000;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+
+    .dropdown{
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 15rem;
+
+        a{
+            display: block;
+            width: 15rem;
+            text-align: center;
+            border: solid 3px #000;
+            border-top: none;
+            padding: 0.8rem 0;
+        }
+    }
+
+    .active{
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+  
+    // arrow next to title
+   .subnav-title::after {
+    content: '\25BE'; 
+    margin-left: 5px;
+  }
+  
+}
+  
