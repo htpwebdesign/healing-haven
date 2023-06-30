@@ -23,7 +23,6 @@ get_header( 'shop' );
  * Hook: woocommerce_before_main_content.
  *
  * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 do_action( 'woocommerce_before_main_content' );
@@ -36,16 +35,6 @@ do_action( 'woocommerce_before_main_content' );
 </header>
 <div class="services-page-wrapper">
 
-	<?php
-	/**
-	 * Hook: woocommerce_archive_description.
-	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
-	do_action( 'woocommerce_archive_description' );
-
-	?> 
 <?php
 	// Get all product categories
 	$categories = get_terms( array(
