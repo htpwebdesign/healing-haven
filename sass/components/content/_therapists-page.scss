@@ -1,0 +1,54 @@
+.therapist-item {
+  text-align: center;
+  margin: 3rem 1rem;
+
+  p {
+    margin: .5rem;
+  }
+
+  .therapist-more-info {
+
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: .2rem;
+      border-bottom: 1px solid $color__text-main;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 1px;
+        background-color: $color__text-main;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover::after {
+        transform: scaleX(1);
+      }
+  
+      svg {
+        vertical-align: sub;
+        margin-left: .2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+    }
+  }
+}
+
+.therapists-section {
+  @media (min-width: 50em) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 87.5rem;
+    margin: 0 auto;
+  }
+}
+
