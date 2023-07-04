@@ -1,7 +1,10 @@
 .page-id-37 {
     .site-main{
-        margin-top: 3rem;
+        margin: 3rem auto 1rem;
         text-align: center;
+        max-width: 850px;
+
+        &
         .contact-form-map{
             .acf-map{
               width: 100%;
@@ -15,9 +18,9 @@
         }
         .post-37{
             .entry-content{
-                .gform_description{
-                    // text-align: left;
-                }
+                // .gform_description{
+                //      text-align: left;
+                // }
                 .gfield_description{
                     text-align: left;
                 }
