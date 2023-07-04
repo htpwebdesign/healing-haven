@@ -63,7 +63,7 @@ get_header();
 
 				if ( $policies ) :
 					?>
-					<div class="about policies">
+					<div class="about policies" id="policies">
 						<h2>Policies</h2>
 						<div class="accordion">
 
