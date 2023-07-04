@@ -41,6 +41,23 @@
 			$specialty_array[] = $specialty->name;
 		} ?>
 		<p><?php echo implode(", ", $specialty_array) ?></p>
+
+
+		<?php
+		// Output Therapist Availabilities
+		if ( function_exists( 'get_field' ) ) {
+			if ( get_field( 'days_available' ) ) { 
+				$days_available = get_field( 'days_available');
+				$days_array = array();
+
+				foreach ( $days_available as $day ) {
+					$days_array[] = $day['days_available'];
+				} ?>
+				<p><?php echo implode(",", $days_array); ?></p>
+				<?php
+			};
+		};
+		?>
 	</div>
 
 	<div class="entry-content">
@@ -53,6 +70,41 @@
 		}; 
 		?>
 
+		<!-- Output Testimonials -->
+		<section class="therapist-testimonial">
+			<h2>Testimonials</h2>
+			<?php 
+			$args = array (
+				'post_type' => 'hhm-testimonial',
+				'posts_per_page' => '-1',
+			);
+			$therapist_ID = get_the_ID();
+
+			$query = new WP_Query( $args );
+			if ( $query->have_posts() ) {
+				while( $query->have_posts() ) {
+					$query->the_post();
+
+					if ( function_exists( 'get_field' ) ) {
+						if ( get_field( 'therapist_reviewed') ) { 
+							$testimonials = get_field('therapist_reviewed');
+
+							foreach( $testimonials as $testimonial) {
+								if ($testimonial == $therapist_ID) { ?>
+										<h3><?php the_title(); ?></h3> 
+										<?php 
+										the_content();
+								}
+								}
+						}
+					}
+				};
+			wp_reset_postdata();
+			}
+			?>
+		</section>
+
+		<!-- Output availability calendar -->
 		<div class="therapist-availability-calendar">
 		<?php
 		the_content(
