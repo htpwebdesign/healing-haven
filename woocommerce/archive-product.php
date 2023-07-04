@@ -177,6 +177,11 @@ do_action( 'woocommerce_before_main_content' );
 		echo 'No categories found.';
 	}
 	?>
+			<div class="button-container">
+			<button class="link-button">
+				<a href="<?php echo esc_url( home_url( '/about#policies' ) ); ?>"><span>Check Out Our Policies</span></a>
+			</button>
+		</div>
 	</div>
 	</div>
 
