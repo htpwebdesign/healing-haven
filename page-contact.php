@@ -73,12 +73,13 @@ get_header();
 				<line id="Line_193" data-name="Line 193" x2="7" transform="translate(13.5 13.5)" fill="none" stroke="#313131" stroke-width="1"/>
 				</svg>
 
-
+			<div class="contact-hours-container">
 				<p><?php if ($acf_field) {
 			$title = $acf_field['label'];
 			echo $title;
-		} ?></p>
+		} ?></p> <br/>
 				<p><?php echo $hours; ?></p>
+			</div>
 			</div>
 			<?php
 		}
