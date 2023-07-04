@@ -46,7 +46,11 @@ do_action( 'woocommerce_before_main_content' );
 
 		?>
 			 <nav class="category-nav">
-				<h3 class="subnav-title">Explore Our Massages</h3>
+				<h3 class="subnav-title">Explore Our Massages
+				<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z"/>
+                  </svg>
+				  </h3>
 			 <ul class='dropdown'>
 		<?php
 	
