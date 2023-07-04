@@ -147,8 +147,8 @@ do_action( 'woocommerce_before_main_content' );
 					?>
 
 					<div class='services-staff'>
-						<div class='services-staff-title'>Offered By: </div>
 						<ul class='therapist-list'>
+						<li class='services-staff-title'>Offered By: </li>
 		
 					<?php
 					$therapists = get_field( 'service_categories', $category  );

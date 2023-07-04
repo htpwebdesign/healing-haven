@@ -26,10 +26,11 @@ nav.woocommerce-breadcrumb{
         .services-staff{
             display: flex;
             justify-content: center;
-            margin-right: 3.2rem;
+
             @media (min-width: 27rem) {
                 margin-right: 0;
                 justify-content: flex-start;
+                
             }
             .services-staff-title{
                 padding-right: 0.5rem;
@@ -59,12 +60,12 @@ nav.woocommerce-breadcrumb{
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             justify-content: center;
 
             @media (min-width: 24rem) {
-                flex-direction: row;
+                flex-direction: row-reverse;
             }
 
             li {
