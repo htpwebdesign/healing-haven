@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying all contact page
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -38,7 +38,7 @@ get_header();
 				<svg xmlns="http://www.w3.org/2000/svg" width="24.137" height="24.179" viewBox="0 0 24.137 24.179">
 			<path id="Icon_feather-phone" data-name="Icon feather-phone" d="M25.5,19.754v3.369a2.246,2.246,0,0,1-2.448,2.246,22.222,22.222,0,0,1-9.691-3.447,21.9,21.9,0,0,1-6.737-6.737A22.222,22.222,0,0,1,3.177,5.448,2.246,2.246,0,0,1,5.412,3H8.78a2.246,2.246,0,0,1,2.246,1.931,14.418,14.418,0,0,0,.786,3.155,2.246,2.246,0,0,1-.505,2.369L9.881,11.882a17.966,17.966,0,0,0,6.737,6.737l1.426-1.426a2.246,2.246,0,0,1,2.369-.505,14.418,14.418,0,0,0,3.155.786A2.246,2.246,0,0,1,25.5,19.754Z" transform="matrix(0.999, 0.035, -0.035, 0.999, -1.762, -2.591)" fill="none" stroke="#313131" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
 			</svg>
-				<?php echo $phone_number; ?>
+				<p><?php echo $phone_number; ?><p>
 			</div>
 			<?php
 		}
@@ -54,7 +54,7 @@ get_header();
 				<path id="Path_31" data-name="Path 31" d="M23,9,13,16,3,9" transform="translate(0 -1)" fill="none" stroke="#313131" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
 			</g>
 			</svg>
-				<?php echo $clinic_email; ?>
+				<p><?php echo $clinic_email; ?></p>
 			</div>
 			<?php
 		}
@@ -64,11 +64,21 @@ get_header();
 		if ($hours) {
 			?>
 			<div class="contact-form-hours">
-				<h3><?php if ($acf_field) {
+				<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+				<g id="Ellipse_10" data-name="Ellipse 10" fill="#fff" stroke="#313131" stroke-width="1">
+					<circle cx="13" cy="13" r="13" stroke="none"/>
+					<circle cx="13" cy="13" r="12.5" fill="none"/>
+				</g>
+				<line id="Line_192" data-name="Line 192" y2="7" transform="translate(13.5 6.5)" fill="none" stroke="#313131" stroke-width="1"/>
+				<line id="Line_193" data-name="Line 193" x2="7" transform="translate(13.5 13.5)" fill="none" stroke="#313131" stroke-width="1"/>
+				</svg>
+
+
+				<p><?php if ($acf_field) {
 			$title = $acf_field['label'];
 			echo $title;
-		} ?></h3>
-				<?php echo $hours; ?>
+		} ?></p>
+				<p><?php echo $hours; ?></p>
 			</div>
 			<?php
 		}
@@ -80,7 +90,7 @@ get_header();
 			?>
 			<div class="contact-form-address">
 				<h2>Location</h2>
-				<?php echo $clinic_address; ?>
+				<p><?php echo $clinic_address; ?></p>
 			</div>
 			<?php
 		}
