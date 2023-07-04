@@ -13,9 +13,9 @@
 // CTA Button
 // here's the template
   // <div class="button-container">
-	// 	<button class="link-button">
-	// 		<a href=""><span>input title here</span></a>
-	// 	</button>
+	// 	<a class="link-button" href="">
+  //    <span>input title here</span>
+  //  </a>
 	// </div>
 
 @mixin link-button {
