@@ -77,7 +77,9 @@ get_header();
 					$query = new WP_Query( $args );
 					if ( $query->have_posts() ) {
 						while( $query->have_posts() ) {
-							$query->the_post();
+							$query->the_post(); ?>
+							<h3><?php the_title(); ?></h3>
+							<?php
 							the_content();
 						};
 						wp_reset_postdata();
