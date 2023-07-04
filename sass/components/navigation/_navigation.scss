@@ -89,11 +89,17 @@
 	display: block;
 }
 
+.menu-header-menu-container {
+	position: relative;
+	z-index: 1000;
+}
+
 .shop-navigation {
 	display: inline-block;
 }
 
 .menu-shop-container {
+	z-index: 1000;
 	svg {
 		display: none;
 	}
