@@ -10,6 +10,14 @@
 	width: map-get($columns, $numberColumns) - calc(($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
+// CTA Button
+// here's the template
+  // <div class="button-container">
+	// 	<button class="link-button">
+	// 		<a href=""><span>input title here</span></a>
+	// 	</button>
+	// </div>
+
 @mixin link-button {
   background: none;
   padding: 1.5rem 3rem;
