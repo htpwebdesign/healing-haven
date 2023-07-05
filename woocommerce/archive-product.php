@@ -57,12 +57,16 @@ do_action( 'woocommerce_before_main_content' );
 		<?php
 	
 		foreach ( $categories as $category ) {
+
 			if ( $category->name == 'Uncategorized' ) {
 				continue;
 			}
+
 			?>
 			<li>
-				<a href="#category-' . $category->term_id . '"> <?php esc_html( $category->name ) ?></a>
+				<a href="#category-<?php $category->term_id; ?>">
+				 <?php echo esc_html( $category->name); ?>
+				</a>
 			</li>
 				<?php
 		}
@@ -137,8 +141,6 @@ do_action( 'woocommerce_before_main_content' );
 			} else {
 				echo 'No products found.';
 			}
-
-
 			
 			// Get the category featured image
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
@@ -146,7 +148,7 @@ do_action( 'woocommerce_before_main_content' );
 			if (has_post_thumbnail()) {
                 the_post_thumbnail($thumbnail_id, 'full');
             }
-			
+
 			?>
 				<p class="service-description"> <?php esc_html( $category->description ) ?></p>
 
@@ -156,9 +158,9 @@ do_action( 'woocommerce_before_main_content' );
 				
 				if ( get_field( 'service_categories', $category ) ) {
 					?>
-
-					<h3 class='services-staff-title'>Offered By: </h3>
+	
 					<div class='services-staff'>
+						<h3 class='services-staff-title'>Offered By: </h3>
 						<ul class='therapist-list'>
 		
 					<?php
