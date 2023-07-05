@@ -146,7 +146,7 @@ function healing_haven_scripts() {
 		'services-nav-scripts',
 		get_template_directory_uri() .'/js/services-nav.js',
 		array(),
-		_S_VERISON,
+		_S_VERSION,
 		true
 	);
 

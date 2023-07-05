@@ -78,15 +78,15 @@ get_header();
 						if( $policy_title && $policy_parag ) :
 							?>
 
-							<div class="accordion-item">
+							<button class="accordion-item">
 								<h3 class="accordion-title" data-index="<?php echo $index; ?>"><?php echo $policy_title; ?>
 									<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M7 10l5 5 5-5z"/>
-                  </svg>
+										<path d="M7 10l5 5 5-5z"/>
+									</svg>
 								</h3>
 
 								<div class="accordion-content" data-index="<?php echo $index; ?>"><?php echo $policy_parag; ?></div>
-							</div> <!-- Close accordion-item -->
+							</button> <!-- Close accordion-item -->
 
 							<?php
 
