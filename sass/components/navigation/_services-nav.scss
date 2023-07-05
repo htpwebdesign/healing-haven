@@ -35,6 +35,10 @@
         h3{
             margin: 0;
         }
+
+        &:focus{
+            background: #eeeeee;
+        }
     }
 
     .dropdown{
@@ -54,6 +58,10 @@
             border: solid 3px #000;
             border-top: none;
             padding: 0.8rem 0;
+
+            &:focus{
+                background: #eeeeee;
+            }
         }
     }
 
