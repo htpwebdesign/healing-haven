@@ -22,8 +22,12 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				healing_haven_posted_on();
-				healing_haven_posted_by();
+				if ( is_singular () ):
+					healing_haven_posted_on();
+					healing_haven_posted_by();
+				else :
+					healing_haven_posted_on();
+				endif;
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -33,20 +37,24 @@
 
 	<div class="entry-content">
 		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'healing-haven' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
+		if( is_single() ){
+			the_content(
+				sprintf(
+					wp_kses(
+						/* translators: %s: Name of current post. Only visible to screen readers */
+						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'healing-haven' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
+				)
+			);
+		} else {
+			the_excerpt();
+		}
 
 		wp_link_pages(
 			array(
