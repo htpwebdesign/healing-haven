@@ -40,8 +40,6 @@
 
 						if (have_rows('social_media' , 37 )) {
 
-							$socials = get_field( 'social_media' , 37 );
-
 							while (have_rows('social_media' , 37 )) {
 
 								the_row();
