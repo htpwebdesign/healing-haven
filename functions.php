@@ -120,26 +120,6 @@ function healing_haven_content_width() {
 add_action( 'after_setup_theme', 'healing_haven_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function healing_haven_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'healing-haven' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'healing-haven' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'healing_haven_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function healing_haven_scripts() {
@@ -166,18 +146,25 @@ function healing_haven_scripts() {
 		'services-nav-scripts',
 		get_template_directory_uri() .'/js/services-nav.js',
 		array(),
-		null,
+		_S_VERSION,
 		true
 	);
+
+	// Enqueue map on contact page
+	wp_enqueue_script(
+		'google-maps', 
+		'https://maps.googleapis.com/maps/api/js?key=AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08&map_ids=d751ae2754605c87&callback=Function.prototype', array(), 
+		null, 
+		true);
+
+    wp_enqueue_script(
+		'custom-map-script', 
+		get_template_directory_uri() . '/js/map.js', 
+		array('jquery'), 
+		'5.8.6', 
+		true);
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
-
-function enqueue_map_script() {
-    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08&map_ids=d751ae2754605c87&callback=Function.prototype', array(), null, true);
-    wp_enqueue_script('custom-map-script', get_template_directory_uri() . '/js/map.js', array('jquery'), null, true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_map_script');
-
 
 
 /**
@@ -233,4 +220,4 @@ function fwd_archive_title_prefix( $prefix ){
 add_filter( 'get_the_archive_title_prefix', 'fwd_archive_title_prefix' );
 
 // To remove the prefix for all archives on the site...
-add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
+// add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );

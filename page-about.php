@@ -47,10 +47,10 @@ get_header();
 
 						if( $title_about &&  $about_parag ) {
 						?>
-							<div class="about <?php echo esc_attr(strtolower( $title_about ));?>">
+							<section class="about <?php echo esc_attr(strtolower( $title_about ));?>">
 								<h2><?php echo esc_html( $title_about ); ?></h2>
 								<p><?php echo esc_html( $about_parag ); ?></p>
-							</div>
+							</section>
 						
 						<?php
 						}
@@ -63,7 +63,7 @@ get_header();
 
 				if ( $policies ) :
 					?>
-					<div class="about policies" id="policies">
+					<section class="about policies" id="policies">
 						<h2>Policies</h2>
 						<div class="accordion">
 
@@ -78,15 +78,14 @@ get_header();
 						if( $policy_title && $policy_parag ) :
 							?>
 
-							<div class="accordion-item">
-								<h3 class="accordion-title" data-index="<?php echo $index; ?>"><?php echo $policy_title; ?>
-									<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M7 10l5 5 5-5z"/>
-                  </svg>
-								</h3>
+							<button class="accordion-item">
+								<h3 class="accordion-title" data-index="<?php echo $index; ?>"><?php echo $policy_title; ?></h3>
+								<svg aria-hidden="true" class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+										<path d="M7 10l5 5 5-5z"/>
+								</svg>
 
 								<div class="accordion-content" data-index="<?php echo $index; ?>"><?php echo $policy_parag; ?></div>
-							</div> <!-- Close accordion-item -->
+							</button> <!-- Close accordion-item -->
 
 							<?php
 
@@ -97,7 +96,7 @@ get_header();
 					?>
 
 						</div> <!-- Close accordion -->
-					</div>
+					</section>
 
 					<?php
 				endif;
