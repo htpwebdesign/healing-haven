@@ -46,6 +46,8 @@ function fwd_register_custom_post_types() {
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-groups',
         'supports'           => array( 'title', 'thumbnail', 'editor' ),
+        'template'           => array( array( 'woocommerce/bookings-availability-calendar-block' ) ),
+        'template_lock'      => 'all',
     );
 
     register_post_type( 'hhm-therapists', $args );
