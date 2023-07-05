@@ -37,11 +37,11 @@ get_header();
 		if ($phone_number) {
 			?>
 			<section class='clinic-info'>
-			<div class="contact-form-phone">
+			<div class="contact-phone">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24.137" height="24.179" viewBox="0 0 24.137 24.179" aria-hidden="true">
 			<path id="Icon_feather-phone" data-name="Icon feather-phone" d="M25.5,19.754v3.369a2.246,2.246,0,0,1-2.448,2.246,22.222,22.222,0,0,1-9.691-3.447,21.9,21.9,0,0,1-6.737-6.737A22.222,22.222,0,0,1,3.177,5.448,2.246,2.246,0,0,1,5.412,3H8.78a2.246,2.246,0,0,1,2.246,1.931,14.418,14.418,0,0,0,.786,3.155,2.246,2.246,0,0,1-.505,2.369L9.881,11.882a17.966,17.966,0,0,0,6.737,6.737l1.426-1.426a2.246,2.246,0,0,1,2.369-.505,14.418,14.418,0,0,0,3.155.786A2.246,2.246,0,0,1,25.5,19.754Z" transform="matrix(0.999, 0.035, -0.035, 0.999, -1.762, -2.591)" fill="none" stroke="#313131" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
 			</svg>
-				<p><?php echo $phone_number; ?><p>
+				<p><?php echo $phone_number; ?></p>
 			</div>
 			<?php
 		}
