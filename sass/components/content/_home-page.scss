@@ -1,0 +1,43 @@
+.home .site-main {
+    padding: 0rem;
+    section {
+        padding: 0rem 1.5rem;
+    }
+}
+
+.home-hero {
+    position: relative;
+    overflow: hidden;
+    &::after {
+        content:"";
+        display: block;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left:0;
+        width: 100%;
+        max-width: 1920px;
+        height: 99.5%;
+        background-color: #000;
+        opacity: 50%;
+    }
+    img {
+        width: auto;
+        max-width:none;
+        height: 500px;
+        object-position: -10% 50%;
+    }
+}
+
+.hero-text {
+    position: absolute;
+    z-index: 10;
+    top: 45%;
+    left:0;
+    right: 0;
+    color: #fff;
+    text-align: center;
+    h1 {
+        color: #fff;
+    }
+}
