@@ -35,16 +35,31 @@
 						the_field( 'phone_number' , 37 );
 						?></li><?php
 					}
+
+					if( get_field( 'social_media' , 37 )){
+
+						if (have_rows('social_media' , 37 )) {
+
+							while (have_rows('social_media' , 37 )) {
+
+								the_row();
+						
+							$icon = get_sub_field('icon_svg');
+							$link = get_sub_field( 'social_media_link');
+							?>
+							<li class="footer-item">
+								<a target="_blank" href="<?php echo $link ?>" ><?php
+								echo $icon
+							?></li><?php
+							}
+							}
+					}
 			}
 			?><li class="footer-item">
 			<a class="footer-policies" href="<?php echo esc_url( home_url( '/about#policies' ) ); ?>">
 				<span>Policies</span>
 			</a>
 			</li>
-			
-		<li class="footer-item">
-		<?php wp_nav_menu(array('theme_location' => 'footer-right'));?>
-		</li>
 		</ul>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
