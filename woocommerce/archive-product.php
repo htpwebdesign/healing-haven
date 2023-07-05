@@ -46,7 +46,7 @@ do_action( 'woocommerce_before_main_content' );
 
 		?>
 			 <nav class="category-nav">
-				<button class="subnav-title" >
+				<button class="subnav-title" aria-controls="services-menu" aria-expanded="false">
 					<h3>Explore Our Massages</h3>
 
 					<svg aria-hidden="true" class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@ do_action( 'woocommerce_before_main_content' );
 
 			?>
 			<li>
-				<a href="#category-<?php $category->term_id; ?>">
+				<a  class="services-menu-link" href="#category-<?php echo esc_html( $category->term_id); ?>">
 				 <?php echo esc_html( $category->name); ?>
 				</a>
 			</li>
@@ -86,8 +86,8 @@ do_action( 'woocommerce_before_main_content' );
 
 			// Output category name
 			?>
-			<section class="service-section <?php $category->term_id ?>" id="category-<?php $category->term_id ?>">
-			<h2 class="service-title"> <?php esc_html( $category->name ) ?></h2>
+			<section class="service-section <?php echo esc_html( $category->term_id ) ?>" id="category-<?php echo esc_html( $category->term_id ) ?>">
+			<h2 class="service-title"> <?php echo esc_html( $category->name ) ?></h2>
 			<?php
 
 

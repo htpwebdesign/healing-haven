@@ -54,7 +54,6 @@ function healing_haven_setup() {
 		array(
 			'menu-1' => esc_html__( 'Primary', 'healing-haven' ),
 			'header-right' => esc_html__( 'Header - Right Side', 'healing-haven' ),
-			'footer-right' => esc_html__( 'Footer', 'healing-haven' ),
 		)
 	);
 
