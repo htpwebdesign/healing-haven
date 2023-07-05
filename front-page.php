@@ -104,14 +104,14 @@ get_header();
 								<h3><?php the_title(); ?></h3>
 								<p><?php echo get_the_date(); ?></p>
 								<p><?php the_excerpt(); ?></p>
-								<a href="<?php the_permalink() ?>"><p>Read More</p></a>
+								<p><a href="<?php the_permalink() ?>">Read More</a></p>
 							</article>
 							<?php
 						}
 						wp_reset_postdata();
 					}
 					?>
-					<a href="<?php the_permalink(57) ?>"><p>Check out other posts</p></a>
+					<p><a href="<?php the_permalink(57) ?>">Check out other posts</a></p>
 				</section>
 
 				<section class="instagram">

@@ -39,7 +39,7 @@ get_header();
 				?>
 				<article class="therapist-item">						
 					<?php the_post_thumbnail( 'portrait-therapist' );?>
-					<h3><?php the_title(); ?></h3>
+					<h2><?php the_title(); ?></h2>
 					<p>
 					<?php
 						$specialties = get_the_terms(get_the_ID(), 'hhm-specialties');
