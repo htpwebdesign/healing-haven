@@ -163,7 +163,7 @@ function healing_haven_scripts() {
 		array('jquery'), 
 		'5.8.6', 
 		true);
-}
+	}
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
 
@@ -221,3 +221,9 @@ add_filter( 'get_the_archive_title_prefix', 'fwd_archive_title_prefix' );
 
 // To remove the prefix for all archives on the site...
 // add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
+
+// function my_acf_google_map_api( $api ){
+//     $api['key'] = 'AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08';
+//     return $api;
+// }
+// add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');

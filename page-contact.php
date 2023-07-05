@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all contact page
+ * The template for displaying the contact page
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -31,7 +31,7 @@ get_header();
 		$clinic_address = get_field('address');
 		$hours = get_field('open_hours');
 		$acf_field = get_field_object('open_hours');
-		
+		$google_map = get_field('address_map');
 		
 			
 		if ($phone_number) {
@@ -107,7 +107,7 @@ get_header();
 			$zoom = $google_map['zoom'];
 
 			?>
-			<section class='google_map'>
+			<section class='google-map'>
 			<div class="contact-map">
 				 <div class="acf-map" data-zoom="<?php echo esc_attr($zoom); ?>">
 					<div class="marker" data-lat="<?php echo esc_attr($google_map['lat']); ?>" data-lng="<?php echo esc_attr($google_map['lng']); ?>">
