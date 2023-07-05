@@ -142,14 +142,11 @@ do_action( 'woocommerce_before_main_content' );
 			
 			// Get the category featured image
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-			$image_url = wp_get_attachment_image($thumbnail_id, 'full');
-			
-			if ($image_url) {
-				?>
-				<img src="<?php esc_url($image_url) ?>" alt="<?php esc_attr($category->name) ?>">
 
-				<?php
-			}
+			if (has_post_thumbnail()) {
+                the_post_thumbnail($thumbnail_id, 'full');
+            }
+			
 			?>
 				<p class="service-description"> <?php esc_html( $category->description ) ?></p>
 
