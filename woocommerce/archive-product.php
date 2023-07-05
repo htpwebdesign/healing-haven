@@ -46,11 +46,13 @@ do_action( 'woocommerce_before_main_content' );
 
 		?>
 			 <nav class="category-nav">
-				<h3 class="subnav-title">Explore Our Massages
-				<svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M7 10l5 5 5-5z"/>
-                  </svg>
-				  </h3>
+				<button class="subnav-title" >
+					<h3>Explore Our Massages</h3>
+
+					<svg aria-hidden="true" class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path d="M7 10l5 5 5-5z"/>
+					</svg>
+					</button>
 			 <ul class='dropdown'>
 		<?php
 	
@@ -58,8 +60,11 @@ do_action( 'woocommerce_before_main_content' );
 			if ( $category->name == 'Uncategorized' ) {
 				continue;
 			}
-	
-			echo '<li><a href="#category-' . $category->term_id . '">' . esc_html( $category->name ) . '</a></li>';
+			?>
+			<li>
+				<a href="#category-' . $category->term_id . '"> <?php esc_html( $category->name ) ?></a>
+			</li>
+				<?php
 		}
 	
 		?>
@@ -76,8 +81,10 @@ do_action( 'woocommerce_before_main_content' );
 			}
 
 			// Output category name
-			echo '<section class="service-section '.$category->term_id.'" id="category-'.$category->term_id.'">';
-			echo '<h2 class="service-title">' . esc_html( $category->name ) . '</h2>';
+			?>
+			<section class="service-section <?php $category->term_id ?>" id="category-<?php $category->term_id ?>">
+			<h2 class="service-title"> <?php esc_html( $category->name ) ?></h2>
+			<?php
 
 
 			// Get the products in the current category
@@ -123,7 +130,9 @@ do_action( 'woocommerce_before_main_content' );
 					else
 						echo `$`.$price. ' ';
 				}
-				echo '</div>';
+				?>
+					</div>
+				<?php
 
 			} else {
 				echo 'No products found.';
@@ -133,22 +142,27 @@ do_action( 'woocommerce_before_main_content' );
 			
 			// Get the category featured image
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
-			$image_url = wp_get_attachment_image_url($thumbnail_id, 'full');
+			$image_url = wp_get_attachment_image($thumbnail_id, 'full');
 			
 			if ($image_url) {
-				echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($category->name) . '">';
-			}
+				?>
+				<img src="<?php esc_url($image_url) ?>" alt="<?php esc_attr($category->name) ?>">
 
-			echo '<p class="service-description">' . esc_html( $category->description ) . '</p>';
+				<?php
+			}
+			?>
+				<p class="service-description"> <?php esc_html( $category->description ) ?></p>
+
+				<?php
 			
 			if ( function_exists( 'get_field' ) ) {
 				
 				if ( get_field( 'service_categories', $category ) ) {
 					?>
 
+					<h3 class='services-staff-title'>Offered By: </h3>
 					<div class='services-staff'>
 						<ul class='therapist-list'>
-						<li class='services-staff-title'>Offered By: </li>
 		
 					<?php
 					$therapists = get_field( 'service_categories', $category  );
@@ -161,7 +175,8 @@ do_action( 'woocommerce_before_main_content' );
 						echo "<a href='$staffLink'>";
 						echo $title;
 						?>
-						</a></li>
+						</a>
+						</li>
 						<?php
 					}
 					?>
@@ -181,11 +196,11 @@ do_action( 'woocommerce_before_main_content' );
 		echo 'No categories found.';
 	}
 	?>
-		<div class="button-container">
+		<button class="button-container">
 			<a class="link-button" href="<?php echo esc_url( home_url( '/about#policies' ) ); ?>">
 				<span>Check Out Our Policies</span>
 			</a>
-		</div>
+		</button>
 	</div>
 	</div>
 
