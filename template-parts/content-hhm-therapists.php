@@ -85,6 +85,10 @@
 		<!-- Output Testimonials -->
 		<section class="therapist-testimonial">
 			<h2>Testimonials</h2>
+
+				<div class="swiper">
+				<div class="swiper-wrapper">
+
 			<?php 
 			$args = array (
 				'post_type' => 'hhm-testimonial',
@@ -103,17 +107,36 @@
 
 							foreach( $testimonials as $testimonial) {
 								if ($testimonial == $therapist_ID) { ?>
+								
+								<div class="swiper-slide">
 										<h3><?php the_title(); ?></h3> 
 										<?php 
 										the_content();
+										?>
+									</div>
+									<?php
 								}
 								}
 						}
 					}
-				};
+				}; ?>
+
+			</div>
+						
+			<div class="swiper-pagination"></div>
+						
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+
+		  </div>
+
+				<?php
+
+				
 			wp_reset_postdata();
 			}
 			?>
+
 		</section>
 
 		<!-- Output availability calendar -->

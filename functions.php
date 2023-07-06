@@ -190,6 +190,32 @@ function healing_haven_scripts() {
 			_S_VERSION, 
 			true
 		);
+
+
+// slider - swiper files
+// need to add if statements here still
+		wp_enqueue_style(
+			'swiper-styles',
+			get_template_directory_uri() . '/css/swiper-bundle.css',
+			array(),
+			'9.3.1'
+		);
+
+		wp_enqueue_script(
+			'swiper-scripts',
+			get_template_directory_uri().'/js/swiper-bundle.min.js',
+			array(),
+			'9.3.1',
+			true 
+		);
+
+		wp_enqueue_script(
+			'swiper-settings',
+			get_template_directory_uri().'/js/swiper-settings.js',
+			array( 'swiper-scripts' ), 
+			_S_VERSION,
+			true
+		);
 	}
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
