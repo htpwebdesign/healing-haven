@@ -7,7 +7,9 @@
 
 .home-hero {
     position: relative;
-    height: 500px;
+    min-height: 500px;
+    height: 35vw;
+    max-height: 650px;
     background-size: auto 500px;
     background-repeat: no-repeat;
     background-position: center top;
@@ -20,7 +22,11 @@
         left: 0;
         z-index: 1;
         background-color: #000;
-        opacity: 40%;
+        opacity: 50%;
+    }
+
+    @media(min-width: 46.875em) {
+        background-size: 100vw auto;
     }
 }
 
@@ -40,7 +46,17 @@
     }
     p {
         letter-spacing: 2.5px;
+        font-size: 1.1rem;
         text-transform: uppercase;
         margin-bottom: 1rem;
+    }
+
+    @media(min-width: 50em) {
+        h1 {
+            font-size: 3.4rem;
+        }
+        p {
+            font-size: 1.3rem;
+        }
     }
 }

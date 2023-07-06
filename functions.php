@@ -141,13 +141,16 @@ function healing_haven_scripts() {
 	);
 
 	// Enqueue services-nav on the Services page
+	if (is_shop()) {
 	wp_enqueue_script(
 		'services-nav-scripts',
-		get_template_directory_uri() .'/js/services-nav.js',
+		get_template_directory_uri() . '/js/services-nav.js',
 		array(),
-		_S_VERSION,
+		'_S_VERSION',
 		true
 	);
+}
+
 
 	// Enqueue map on contact page
 	wp_enqueue_script(
