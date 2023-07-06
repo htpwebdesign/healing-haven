@@ -6,21 +6,24 @@
         text-align: center;
     }
 
-    // TEMPORARY CODE FOR STYLING
-    // .therapist-testimonial{
+    // SLIDER
+    .slider-container{
+        width: 100%;
+        
+        .swiper{
+            width: 80%;
+            height: fit-content;
+        }
 
-    //     h3{
-    //         &:not(:nth-child(2)){
-    //             display: none;
-    //         }
-    //     }
-    //     blockquote{
-    //         &:not(:nth-child(3)){
-    //             display: none;
-    //         }
-    //     }
-    // }
-    // to here
+        .swiper-slide div{
+            width: 100%;
+            
+        }
+    }
+
+
+
+
 }
 
 .therapist-details {
