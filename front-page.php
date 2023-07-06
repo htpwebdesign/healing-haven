@@ -53,7 +53,7 @@ get_header();
 				?>
 
 				<!-- Output intro text -->
-				<section class="home-intro">
+				<section class="home-intro" id="home-intro">
 					<?php 
 					if ( function_exists( 'get_field' ) ) {
 						if ( get_field( 'slogan' ) ) { ?>
@@ -68,6 +68,7 @@ get_header();
 					?>
 				</section>
 
+				<div class="home-content-wrapper">
 				<!-- Output popular services -->
 				<section class="home-popular-services">
 					<h2>Popular Services</h2>
@@ -136,7 +137,7 @@ get_header();
 					};
 					?>
 				</section>
-
+				</div>
 			<?php
 			endwhile;
 
