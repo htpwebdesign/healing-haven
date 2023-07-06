@@ -162,7 +162,21 @@ function healing_haven_scripts() {
 		array('jquery'), 
 		'5.8.6', 
 		true);
+	
+	// Enqueue lightgallery scripts on lightbox page
+	if ( is_page(268) ) {
+		wp_enqueue_style( 'lightgallery-styles', get_template_directory_uri() . '/lightgallery/scss/lightgallery-bundle.scss', array(), '2.7.1');
+		wp_enqueue_script( 
+			'lightgallery-settings', 
+			get_template_directory_uri() .'/lightgallery/js/lightgallery.umd.js', 
+			array(), 
+			'2.7.2-beta.1', 
+			true
+		);
+		wp_enqueue_script( 'lightgallery-thumbnail', get_template_directory_uri() .'/lightgallery/js/plugins/thumbnail/lg-thumbnail.umd.js', array('lightgallery-settings'), '2.7.2-beta.1', true);
+		wp_enqueue_script( 'lightgallery-script', get_template_directory_uri() .'/lightgallery/js/lightgallery.js', array('lightgallery-settings'), _S_VERSION, true);
 	}
+}
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
 
