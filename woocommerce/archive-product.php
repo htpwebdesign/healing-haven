@@ -150,7 +150,7 @@ do_action( 'woocommerce_before_main_content' );
             }
 
 			?>
-				<p class="service-description"> <?php esc_html( $category->description ) ?></p>
+				<p class="service-description"> <?php echo esc_html( $category->description ) ?></p>
 
 				<?php
 			
@@ -195,12 +195,13 @@ do_action( 'woocommerce_before_main_content' );
 		echo 'No categories found.';
 	}
 	?>
+	</div>
+
 		<button class="button-container">
 			<a class="link-button" href="<?php echo esc_url( home_url( '/about#policies' ) ); ?>">
 				<span>Check Out Our Policies</span>
 			</a>
 		</button>
-	</div>
 	</div>
 
 <?php
