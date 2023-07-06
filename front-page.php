@@ -16,14 +16,18 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<header class="home-hero">
+		<!-- Get Hero image and store it in a variable -->
+		<?php 
+		if ( function_exists( 'get_field' ) ) {
+			if ( get_field( 'hero_image' ) ) {
+				$hero_image = get_field( 'hero_image' );
+			}; 
+		}
+		?>
+		<header class="home-hero" style="background-image: url('<?php echo $hero_image ?>');">
 			<?php 
-			if ( function_exists( 'get_field' ) ) {
-				if ( get_field( 'hero_image' ) ) {
-					$hero_image = get_field( 'hero_image' );
-					$hero_image_size = 'full';
-					echo wp_get_attachment_image( $hero_image, $hero_image_size );
-				}; ?>
+			// Output hero section text
+			if ( function_exists( 'get_field' ) ) { ?>
 				<div class="hero-text">
 					<?php
 					if ( get_field('welcome_message') ) { ?>
@@ -44,11 +48,11 @@ get_header();
 		<?php
 		if ( have_posts() ) :
 
-			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
 				?>
 
+				<!-- Output intro text -->
 				<section class="home-intro">
 					<?php 
 					if ( function_exists( 'get_field' ) ) {
@@ -64,11 +68,13 @@ get_header();
 					?>
 				</section>
 
+				<!-- Output popular services -->
 				<section class="home-popular-services">
 					<h2>Popular Services</h2>
 					<?php get_template_part( 'template-parts/popular-services' ); ?>
 				</section>
 
+				<!-- Output 3 random testimonials -->
 				<section class="home-testimonials">
 					<h2>Testimonials</h2>
 					<?php 
@@ -91,6 +97,7 @@ get_header();
 					?>
 				</section>
 
+				<!-- Out 3 random blog posts -->
 				<section class="home-blog">
 					<h2>Recent Blog Posts</h2>
 					<?php 
@@ -118,6 +125,7 @@ get_header();
 					<p><a href="<?php the_permalink(57) ?>">Check out other posts</a></p>
 				</section>
 
+				<!-- Output instagram feed -->
 				<section class="instagram">
 					<h2>Check out our instagram</h2>
 					<?php 

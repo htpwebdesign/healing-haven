@@ -7,37 +7,40 @@
 
 .home-hero {
     position: relative;
-    overflow: hidden;
-    &::after {
+    height: 500px;
+    background-size: auto 500px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    &::before {
         content:"";
-        display: block;
-        position: absolute;
-        z-index: 1;
-        top: 0;
-        left:0;
+        height: 100%;
         width: 100%;
-        max-width: 1920px;
-        height: 99.5%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
         background-color: #000;
-        opacity: 50%;
-    }
-    img {
-        width: auto;
-        max-width:none;
-        height: 500px;
-        object-position: -10% 50%;
+        opacity: 40%;
     }
 }
 
 .hero-text {
     position: absolute;
     z-index: 10;
-    top: 45%;
+    top: 35%;
     left:0;
     right: 0;
     color: #fff;
     text-align: center;
     h1 {
         color: #fff;
+        font-weight: normal;
+        font-size: 2.4rem;
+        margin-top: 1rem;
+    }
+    p {
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
     }
 }
