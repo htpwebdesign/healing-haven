@@ -16,14 +16,16 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<header class="home-hero">
+		<?php 
+		if ( function_exists( 'get_field' ) ) {
+			if ( get_field( 'hero_image' ) ) {
+				$hero_image = get_field( 'hero_image' );
+			}; 
+		}
+		?>
+		<header class="home-hero" style="background-image: url('<?php echo $hero_image ?>');">
 			<?php 
-			if ( function_exists( 'get_field' ) ) {
-				if ( get_field( 'hero_image' ) ) {
-					$hero_image = get_field( 'hero_image' );
-					$hero_image_size = 'full';
-					echo wp_get_attachment_image( $hero_image, $hero_image_size );
-				}; ?>
+			if ( function_exists( 'get_field' ) ) { ?>
 				<div class="hero-text">
 					<?php
 					if ( get_field('welcome_message') ) { ?>
