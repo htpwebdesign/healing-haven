@@ -176,13 +176,13 @@ function healing_haven_scripts() {
 			'2.7.2-beta.1', 
 			true
 		);
-		wp_enqueue_script( 
-			'lightgallery-thumbnail', 
-			get_template_directory_uri() .'/lightgallery/js/plugins/thumbnail/lg-thumbnail.umd.js', 
-			array('lightgallery-settings'), 
-			'2.7.2-beta.1', 
-			true
-		);
+		// wp_enqueue_script( 
+		// 	'lightgallery-thumbnail', 
+		// 	get_template_directory_uri() .'/lightgallery/js/plugins/thumbnail/lg-thumbnail.umd.js', 
+		// 	array('lightgallery-settings'), 
+		// 	'2.7.2-beta.1', 
+		// 	true
+		// );
 		wp_enqueue_script( 
 			'lightgallery-script', 
 			get_template_directory_uri() .'/lightgallery/js/lightgallery.js', 
