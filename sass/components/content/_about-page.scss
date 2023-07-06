@@ -1,4 +1,15 @@
-#post-34 {
+.page-id-34 {
+
+  #post-34 {
+    max-width: 64rem;
+    margin: 2rem auto;
+
+    img {
+      display: block;
+      object-fit: cover;
+      max-height: 30rem;
+    }
+  }
 
   .about {
     margin-bottom: 5rem;

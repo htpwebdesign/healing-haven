@@ -10,6 +10,14 @@ h6 {
 	letter-spacing: normal;
 }
 
-h1{
+h1 {
+	font-size: 3rem;
 	text-align: center;
+	margin: 3rem 0;
+}
+
+@media (min-width: 50em) {
+	h1 {
+		font-size: 4rem;
+	}
 }
