@@ -1,0 +1,48 @@
+.hhm-therapists {
+    max-width: 30rem;
+    margin: 0 auto;
+
+    h2{
+        text-align: center;
+    }
+
+    // TEMPORARY CODE FOR STYLING
+    // .therapist-testimonial{
+
+    //     h3{
+    //         &:not(:nth-child(2)){
+    //             display: none;
+    //         }
+    //     }
+    //     blockquote{
+    //         &:not(:nth-child(3)){
+    //             display: none;
+    //         }
+    //     }
+    // }
+    // to here
+}
+
+.therapist-details {
+
+    &>div{
+        display: flex;
+        align-items: baseline;
+        margin: 1rem 0 0;
+    }
+
+    h3{
+        margin: 0 0.5rem 0 0;
+    }
+
+    p{
+        margin: 0 0.5rem 0 0;
+    }
+
+    a{
+        margin: 0 0.5rem 0 0;
+        display: block;
+    }
+
+
+}

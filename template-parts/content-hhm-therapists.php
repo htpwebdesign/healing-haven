@@ -28,7 +28,10 @@
 		if ( function_exists( 'get_field' ) ) {
 			if ( get_field( 'therapist_email' ) ) { 
 				?>
+				<div class="email-wrapper">
+				<h3>Email:</h3>
 				<a href="mailto:<?php the_field('therapist_email'); ?>"><?php the_field('therapist_email'); ?></a>
+				</div>
 			<?php
 			};
 		};
@@ -40,7 +43,11 @@
 		foreach($specialties as $specialty) {
 			$specialty_array[] = $specialty->name;
 		} ?>
-		<p><?php echo implode(", ", $specialty_array) ?></p>
+
+		<div class="specialties-wrapper">
+			<h3>Specialty:</h3>
+			<p><?php echo implode(", ", $specialty_array) ?></p>
+		</div>
 
 
 		<?php
@@ -53,7 +60,12 @@
 				foreach ( $days_available as $day ) {
 					$days_array[] = $day['days_available'];
 				} ?>
-				<p><?php echo implode(",", $days_array); ?></p>
+
+				<div class="availability-wrapper">
+					<h3>Availability:</h3>
+					<p><?php echo implode(",", $days_array); ?></p>
+				</div>
+
 				<?php
 			};
 		};
@@ -136,9 +148,13 @@
 	</div><!-- .entry-content -->
 
 	<!-- Call to action button -->
-	<a href="<?php echo get_post_type_archive_link('hhm-therapists'); ?>">
-		<p>Check out other therapists</p>
-	</a>
+
+	<div class="button-container">
+					<a class="link-button" href="<?php echo get_post_type_archive_link('hhm-therapists'); ?>">
+						<span>Check out other therapists</span>
+					</a>
+	</div>
+
 
 	<footer class="entry-footer">
 		<?php healing_haven_entry_footer(); ?>
