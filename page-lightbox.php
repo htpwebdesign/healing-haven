@@ -37,14 +37,16 @@ get_header();
 					if ( function_exists( 'get_field' ) ) {
 						if ( get_field( 'image_gallery' ) ) {
 							$imageGallery = get_field('image_gallery'); ?>
-							<div id="lightgallery">
+
+							<!-- <div id="lightgallery"> -->
 							<?php
 							foreach( $imageGallery as $image ) { ?>
-								<a><?php echo wp_get_attachment_image($image); ?></a>
+								<!-- <a data-src="<?php echo wp_get_attachment_image_url($image, 'large') ?>"> -->
+									<?php echo wp_get_attachment_image($image, 'medium'); ?>
+								<!-- </a> -->
 								<?php
 							} ?>
-
-							</div>
+							<!-- </div> -->
 							<?php
 						};
 					};
