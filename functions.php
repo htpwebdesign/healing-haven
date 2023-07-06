@@ -141,7 +141,7 @@ function healing_haven_scripts() {
 	);
 
 	// Enqueue services-nav on the Services page
-	if (is_page('services')) {
+	if (is_shop()) {
 	wp_enqueue_script(
 		'services-nav-scripts',
 		get_template_directory_uri() . '/js/services-nav.js',
