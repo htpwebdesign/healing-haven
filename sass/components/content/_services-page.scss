@@ -82,11 +82,20 @@ nav.woocommerce-breadcrumb{
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: column;
+
                 @media (min-width: 27rem) {
                     flex-direction: row;
                 }
                 li{
                     padding: 0.5rem;
+                }
+
+                a{
+                    text-decoration: none;
+
+                    &:hover, &:focus{
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -107,7 +116,10 @@ nav.woocommerce-breadcrumb{
             @media (min-width: 32rem) {
                 flex-direction: row-reverse;
                 justify-content: space-evenly;
-                margin: 1.5rem 0;
+            }
+
+            li{
+                margin: 1rem 0 1.5rem;
             }
 
             a{
