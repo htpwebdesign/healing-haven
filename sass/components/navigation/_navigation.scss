@@ -120,6 +120,20 @@
 		font-size: 1rem;
 		display: flex;
 		}
+
+		li {
+			&:hover > a,
+			&.focus > a {
+				background-color: #eeeeee;
+			}
+		}
+
+		.current_page_item > a,
+		.current-menu-item > a,
+		.current_page_ancestor > a,
+		.current-menu-ancestor > a {
+			font-weight: 700;
+		}
 	}
 
 	.home .main-navigation {
@@ -153,7 +167,7 @@
 
 	.menu-shop-container {
 		display: inline-block;
-		padding-bottom: 0.9375rem;
+		// padding-bottom: 0.9375rem;
 		svg {
 			display: inline;
 			width: 22px;
@@ -167,6 +181,10 @@
 
 		.shop-menu-text {
 			display: none;
+		}
+
+		a {
+			padding: 0.95rem 1rem;
 		}
 	}
 }
