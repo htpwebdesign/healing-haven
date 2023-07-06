@@ -227,6 +227,12 @@ add_filter( 'get_the_archive_title_prefix', 'hhm_archive_title_prefix' );
 // }
 // add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
+// Change excerpt length to 20 words
+function hhm_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'hhm_excerpt_length', 999, 1 );
+
 // Changed excerpt more to a link
 function hhm_excerpt_more( $more ) {
 	$more = '... <a class="read-more" href="'. esc_url( get_permalink() ) .'">'. __( 'Continue Reading', 'hhm' ) .'</a>';
