@@ -165,6 +165,32 @@ function healing_haven_scripts() {
 		array('jquery'), 
 		'5.8.6', 
 		true);
+
+// slider - swiper files
+// need to add if statements here still
+		wp_enqueue_style(
+			'swiper-styles',
+			get_template_directory_uri() . '/css/swiper-bundle.css',
+			array(),
+			'9.3.1'
+		);
+
+		wp_enqueue_script(
+			'swiper-scripts',
+			get_template_directory_uri().'/js/swiper-bundle.min.js',
+			array(),
+			'9.3.1',
+			true 
+		);
+
+		wp_enqueue_script(
+			'swiper-settings',
+			get_template_directory_uri().'/js/swiper-settings.js',
+			array( 'swiper-scripts' ), 
+			_S_VERSION,
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
@@ -229,6 +255,12 @@ add_filter( 'get_the_archive_title_prefix', 'hhm_archive_title_prefix' );
 //     return $api;
 // }
 // add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+// Change excerpt length to 20 words
+function hhm_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'hhm_excerpt_length', 999, 1 );
 
 // Changed excerpt more to a link
 function hhm_excerpt_more( $more ) {

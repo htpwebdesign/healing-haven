@@ -19,3 +19,9 @@ input[type="submit"] {
 		border-color: $color__border-button-focus;
 	}
 }
+
+.btn-border {
+	border: 1px solid $color__text-main;
+	padding: 0.5rem 1.5rem;
+	text-decoration: none;
+}

@@ -22,8 +22,31 @@
 	margin: 0 0 1.5em;
 }
 
-.blog {
+.blog-posts {
+	width: 80vw;
+	margin: 5rem auto;
+
 	a:not(.read-more) {
 		text-decoration: none;
+	}
+
+	article {
+		margin-bottom: 5rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid $color__border;
+	}
+
+	
+
+	@media (min-width: 50rem) {
+
+		article {
+			display: grid;
+			grid-template-columns: repeat(2, (minmax(20rem, 40rem)));
+			align-items: start;
+			gap: 2rem;
+		}
+
+
 	}
 }

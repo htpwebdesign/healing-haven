@@ -1,0 +1,51 @@
+.hhm-therapists {
+    max-width: 30rem;
+    margin: 0 auto;
+
+    h2{
+        text-align: center;
+    }
+
+    // SLIDER
+    .slider-container{
+        width: 100%;
+        
+        .swiper{
+            width: 80%;
+            height: fit-content;
+        }
+
+        .swiper-slide div{
+            width: 100%;
+            
+        }
+    }
+
+
+
+
+}
+
+.therapist-details {
+
+    &>div{
+        display: flex;
+        align-items: baseline;
+        margin: 1rem 0 0;
+    }
+
+    h3{
+        margin: 0 0.5rem 0 0;
+    }
+
+    p{
+        margin: 0 0.5rem 0 0;
+    }
+
+    a{
+        margin: 0 0.5rem 0 0;
+        display: block;
+    }
+
+
+}
