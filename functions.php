@@ -190,7 +190,6 @@ function healing_haven_scripts() {
 			_S_VERSION,
 			true
 		);
-	}
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
