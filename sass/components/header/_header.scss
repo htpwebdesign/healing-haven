@@ -24,19 +24,6 @@ body.home.admin-bar .site-header {
         margin: 0;
     }
 
-    .logo-background{
-        content: "";
-        display: block;
-        width: 3rem;
-        height: 3rem;
-        background: $color__background-body;
-        position: absolute;
-        border-radius: 50%;
-        top: 0;
-        margin: 0.3rem 0 0;
-
-    }
-
     a{
         position: relative;
         z-index: 7;
