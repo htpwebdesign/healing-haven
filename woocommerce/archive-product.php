@@ -146,7 +146,7 @@ do_action( 'woocommerce_before_main_content' );
 			$thumbnail_id = get_term_meta($category->term_id, 'thumbnail_id', true);
 
 			if (has_post_thumbnail()) {
-                the_post_thumbnail($thumbnail_id, 'full');
+                the_post_thumbnail('portrait-therapist');
             }
 
 			?>
