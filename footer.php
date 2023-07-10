@@ -48,7 +48,7 @@
 							$link = get_sub_field( 'social_media_link');
 							?>
 							<li class="footer-item">
-								<a target="_blank" href="<?php echo $link ?>" ><?php
+								<a target="_blank" rel="noopener" href="<?php echo $link ?>" ><?php
 								echo $icon
 							?></li><?php
 							}
