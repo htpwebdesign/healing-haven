@@ -57,13 +57,14 @@
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					'container_class' => 'link-spacing'
 				)
 			);
 			wp_nav_menu(
 				array(
 					'theme_location' => 'header-right',
 					'menu_id'        => 'shop-menu',
-					'container_class' => 'menu-shop-container',
+					'container_class' => 'menu-shop-container link-spacing',
 				)
 			);
 			?>

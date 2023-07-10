@@ -73,7 +73,7 @@ get_header();
 
 			<!-- Output 3 random testimonials -->
 			<section class="home-testimonials">
-				<h2>Testimonials</h2>
+				<h2 class="testimonial-header">Testimonials</h2>
 				<?php 
 				$args = array (
 					'post_type' => 'hhm-testimonial',
@@ -82,21 +82,35 @@ get_header();
 				);
 
 				$query = new WP_Query( $args );
-				if ( $query->have_posts() ) {
-					while( $query->have_posts() ) {
-						$query->the_post(); ?>
-						<article>
-						<h3><?php the_title(); ?></h3>
-						<?php the_content(); ?>
-						</article>
+				if ( $query->have_posts() ) { ?>
+					<div class="swiper">
+						<div class="swiper-wrapper">
+							<?php
+							while( $query->have_posts() ) {
+								$query->the_post(); ?>
+								<article class="swiper-slide" id="swiper-slide">
+									<div class="quotation">
+										<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m21.301 4c.411 0 .699.313.699.663 0 .248-.145.515-.497.702-1.788.948-3.858 4.226-3.858 6.248 3.016-.092 4.326 2.582 4.326 4.258 0 2.007-1.738 4.129-4.308 4.129-3.24 0-4.83-2.547-4.83-5.307 0-5.98 6.834-10.693 8.468-10.693zm-10.833 0c.41 0 .699.313.699.663 0 .248-.145.515-.497.702-1.788.948-3.858 4.226-3.858 6.248 3.016-.092 4.326 2.582 4.326 4.258 0 2.007-1.739 4.129-4.308 4.129-3.241 0-4.83-2.547-4.83-5.307 0-5.98 6.833-10.693 8.468-10.693z" fill-rule="nonzero"/></svg>
+									</div>
+									<h3><?php the_title(); ?></h3>
+									<?php the_content(); ?>
+								</article>
+							<?php
+							}; ?>
+						</div>
+
+						<div class="swiper-pagination"></div>
+
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
 					<?php
-					};
 					wp_reset_postdata();
 				}
 				?>
 			</section>
 
-			<!-- Out 3 random blog posts -->
+			<!-- Output 3 random blog posts -->
 			<section class="home-blog">
 				<h2>Recent Blog Posts</h2>
 				<?php 

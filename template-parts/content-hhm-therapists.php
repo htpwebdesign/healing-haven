@@ -86,53 +86,49 @@
 		<section class="therapist-testimonial">
 			<h2>Testimonials</h2>
 
-				<div class="swiper">
+			<div class="swiper">
 				<div class="swiper-wrapper">
 
-			<?php 
-			$args = array (
-				'post_type' => 'hhm-testimonial',
-				'posts_per_page' => '-1',
-			);
-			$therapist_ID = get_the_ID();
+					<?php 
+					$args = array (
+						'post_type' => 'hhm-testimonial',
+						'posts_per_page' => '-1',
+					);
+					$therapist_ID = get_the_ID();
 
-			$query = new WP_Query( $args );
-			if ( $query->have_posts() ) {
-				while( $query->have_posts() ) {
-					$query->the_post();
+					$query = new WP_Query( $args );
+					if ( $query->have_posts() ) {
+						while( $query->have_posts() ) {
+							$query->the_post();
 
-					if ( function_exists( 'get_field' ) ) {
-						if ( get_field( 'therapist_reviewed') ) { 
-							$testimonials = get_field('therapist_reviewed');
+							if ( function_exists( 'get_field' ) ) {
+								if ( get_field( 'therapist_reviewed') ) { 
+									$testimonials = get_field('therapist_reviewed');
 
-							foreach( $testimonials as $testimonial) {
-								if ($testimonial == $therapist_ID) { ?>
-								
-								<div class="swiper-slide">
-										<h3><?php the_title(); ?></h3> 
-										<?php 
-										the_content();
-										?>
-									</div>
-									<?php
+									foreach( $testimonials as $testimonial) {
+										if ($testimonial == $therapist_ID) { ?>
+										
+										<div class="swiper-slide">
+												<h3><?php the_title(); ?></h3> 
+												<?php 
+												the_content();
+												?>
+										</div>
+											<?php
+										}
+										}
 								}
-								}
-						}
-					}
-				}; ?>
+							}
+						}; ?>
 
+				</div>
+				<div class="swiper-pagination"></div>
+
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
 			</div>
-						
-			<div class="swiper-pagination"></div>
-						
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
 
-		  </div>
-
-				<?php
-
-				
+			<?php
 			wp_reset_postdata();
 			}
 			?>
