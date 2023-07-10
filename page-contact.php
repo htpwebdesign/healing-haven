@@ -19,6 +19,7 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
+			the_post();
 			$page_title = get_the_title();
 			echo "<h1 class='page-title'>$page_title</h1>"
 			?>
@@ -57,7 +58,7 @@ get_header();
 				<path id="Path_31" data-name="Path 31" d="M23,9,13,16,3,9" transform="translate(0 -1)" fill="none" stroke="#313131" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
 			</g>
 			</svg>
-				<a href = "mailto: <?php echo $clinic_email; ?>" class="contact-email-link"><?php echo $clinic_email; ?><a>
+				<a href = "mailto: <?php echo $clinic_email; ?>" class="contact-email-link"><?php echo $clinic_email; ?></a>
 			</div>
 			<?php
 		}
@@ -129,8 +130,7 @@ get_header();
 		?>
 		</section>
 		<?php
-			the_post();
-
+		
 			// get_template_part( 'template-parts/content', 'page' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
