@@ -43,7 +43,7 @@
 				?>
 				<p class="site-description"><?php echo $healing_haven_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
-			<span class="logo-background"></span>
+
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
