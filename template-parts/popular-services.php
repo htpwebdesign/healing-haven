@@ -18,15 +18,17 @@
 			<?php foreach( $popular_services as $popular_service) {
 				$service = wc_get_product($popular_service);
 				$title = $service->get_title();
-				$thumbnail = $service->get_image('medium');
+				$thumbnail = $service->get_image('portrait-therapist');
 				$permalink = $service->get_permalink();
 				?>
 				<li>
 					<?php echo $thumbnail ?>
-					<h3><?php echo $title ?></h3>
-					<a class="btn-border" href="<?php echo esc_url($permalink) ?>">
-						More Info
-					</a>
+					<div class="service-content">
+						<h3><?php echo $title ?></h3>
+						<a class="btn-border link-spacing" href="<?php echo esc_url($permalink) ?>">
+							More Info
+						</a>
+					</div>
 				</li>
 			<?php } ?>
 			</ul>

@@ -96,7 +96,7 @@ get_header();
 				?>
 			</section>
 
-			<!-- Out 3 random blog posts -->
+			<!-- Output 3 random blog posts -->
 			<section class="home-blog">
 				<h2>Recent Blog Posts</h2>
 				<?php 
