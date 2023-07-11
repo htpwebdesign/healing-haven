@@ -123,7 +123,7 @@ do_action( 'woocommerce_before_main_content' );
 						$duration = $product->get_duration();
 						?>
 						<li>
-						<a href='<?php $permalink ?>'>
+						<a href='<?php echo $permalink ?>'>
 						<?php
 						echo $duration . ' min - ';
 						echo '$'.$price. ' ';
@@ -167,6 +167,7 @@ do_action( 'woocommerce_before_main_content' );
 					$therapists = get_field( 'service_categories', $category  );
 
 					foreach ($therapists as $id) {
+
 						$title = get_the_title($id);
 						$staffLink = get_the_permalink($id);
 						
