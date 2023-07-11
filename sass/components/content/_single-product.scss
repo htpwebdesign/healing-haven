@@ -3,10 +3,19 @@
     display: flex;
     flex-direction: column;
 
+    .wc-bookings-booking-form-button{
+        padding: 1rem 1.5rem;
+    }
+
 @media (min-width: 70rem) {
     display: grid;
     grid-template-columns: 1fr 1fr 27rem;
     // grid-template-rows: 1fr 1fr 1fr;
+
+    .wc-bookings-booking-form-button{
+        position: relative;
+        left: 54%;
+    }
 }
 
     h1{
@@ -15,7 +24,7 @@
 
         @media (min-width: 70rem) {
             position: relative;
-            left: 44%;
+            left: 50%;
         }
     }
 
@@ -79,14 +88,14 @@
 
     .woocommerce-Tabs-panel{
         @media (min-width: 70rem) {
-            margin: 1rem;
+            margin: 1rem 0 1rem 2rem;
         }
     }
 
     .price{
         @media (min-width: 70rem) {
             position: relative;
-            left: 44%;
+            left: 50%;
         }
     }
 
@@ -101,9 +110,9 @@
 
         
         .columns-3 .product{
-            // margin: 0 1rem;
             width: fit-content;
             margin: 0 1rem;
+            max-width: 15rem;
         }
         
 
@@ -120,7 +129,7 @@
             
             @media (min-width: 600px) {
                 // margin-right: 0;
-                justify-content: center;
+                justify-content: space-evenly;
                 // align-items: baseline;
                 flex-direction: row;
                 width: 100%;
