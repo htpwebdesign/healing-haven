@@ -8,13 +8,6 @@
 .home .site-main {
     padding: 0rem;
 
-    section {
-        padding: 0rem 1.5rem;
-        @media(min-width: 50em) {
-            @include content-max-width;
-        }
-    }
-
     h2, h3 {
         text-transform: uppercase;
     }
@@ -24,6 +17,20 @@
         font-size: 1.8rem;
         @media(min-width: 50em) {
             font-size: 2.2rem;
+        }
+    }
+}
+
+.home-section-wrapper {
+    @media(min-width: 50em) {
+        @include content-max-width;
+
+        .home-intro,
+        .home-popular-services,
+        .home-testimonials,
+        .home-blog,
+        .instagram {
+            grid-column: 2/3;
         }
     }
 }
@@ -89,10 +96,25 @@
 
 // Intro section
 #home-intro {
-    padding: 4rem 1.5rem;
+    padding-left:1.5rem;
+    padding-right: 1.5rem;
     text-align: center;
     font-weight: 400;
-    background-color: $color__background-gray;
+    position: relative;
+    &::before {
+        content:"";
+        background-color: $color__background-gray;
+        width: 2500px;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        top:0;
+        left: 0;
+        @media(min-width: 62.5em) {
+            left: -30vw;
+        }
+    }
+
     h2 {
         margin-top: 0;
         text-transform: capitalize;
@@ -128,10 +150,6 @@
     }
 
     @media(min-width: 50em) {   
-        .home-services-wrapper {
-            grid-column: 2/3;
-        }
-
         h2 {
             text-align: left;
             margin-bottom: 4rem;
@@ -159,14 +177,22 @@
 
 // Home Testimonials section
 .home-testimonials {
-    background-color: $color__background-gray;
-}
-
-.home-testimonials-wrapper {
-    @media(min-width: 50em) {
-        grid-column: 2/3;
+    position: relative;
+    &::before {
+        content:"";
+        background-color: $color__background-gray;
+        width: 2500px;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        top:0;
+        left: 0;
+        @media(min-width: 62.5em) {
+            left: -30vw;
+        }
     }
 }
+
 .quotation {
     svg {
         border: 1px solid $color__text-header;
@@ -178,9 +204,7 @@
 }
 
 // Recent blog posts
-.home-blog-wrapper {
-    grid-column: 2/3;
-
+.home-blog {
     article {
         @include center-block;
         max-width: 80%;
@@ -204,7 +228,7 @@
 }
 
 @media (min-width: 50em) {
-    .home-blog-wrapper {
+    .home-blog {
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
@@ -224,6 +248,3 @@
 }
 
 // Instagram section
-.instagram-wrapper {
-    grid-column: 2/3;
-}
