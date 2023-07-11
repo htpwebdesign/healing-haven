@@ -288,10 +288,10 @@ function hhm_remove_default_account_navigation( $items ) {
 }
 add_filter( 'woocommerce_account_menu_items', 'hhm_remove_default_account_navigation', 10 );
 
-function remove_smart_coupons_from_my_account() {
-    update_option( 'woocommerce_smart_coupon_show_my_account', 'no' );
-}
-add_action( 'init', 'remove_smart_coupons_from_my_account' );
+// function remove_smart_coupons_from_my_account() {
+//     update_option( 'woocommerce_smart_coupon_show_my_account', 'no' );
+// }
+// add_action( 'init', 'remove_smart_coupons_from_my_account' );
 
 
 function hhm_customize_account_navigation() {
@@ -318,9 +318,9 @@ function hhm_customize_account_navigation() {
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--bookings">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'bookings' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Bookings'); ?></a>
 			</li>
-			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--coupons">
+			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--coupons">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'coupons' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Coupons'); ?></a>
-			</li>
+			</li> -->
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--addresses">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'edit-address' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Addresses'); ?></a>
 			</li>
