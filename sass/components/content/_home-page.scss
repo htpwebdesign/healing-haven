@@ -23,7 +23,8 @@
 
 .home-section-wrapper {
     @media(min-width: 50em) {
-        @include content-max-width;
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 1000px) 1fr;
 
         .home-intro,
         .home-popular-services,
@@ -217,11 +218,14 @@
     }
 }
 
+.read-more-btn {
+    @include more-info-button;
+}
+
 .blog-posts-btn {
     font-size: 0.7rem;
     width: fit-content;
     @include center-block;
-
     @media(min-width: 31.25em) {
         font-size: 1rem;
     }
