@@ -64,15 +64,17 @@ get_header();
 				?>
 			</section>
 
-			<div class="home-content-wrapper">
 			<!-- Output popular services -->
 			<section class="home-popular-services">
-				<h2>Popular Services</h2>
-				<?php get_template_part( 'template-parts/popular-services' ); ?>
+				<div class="home-services-wrapper">
+					<h2>Popular Services</h2>
+					<?php get_template_part( 'template-parts/popular-services' ); ?>
+				</div>
 			</section>
 
 			<!-- Output 3 random testimonials -->
 			<section class="home-testimonials">
+				<div class="home-testimonials-wrapper">
 				<h2 class="testimonial-header">Testimonials</h2>
 				<?php 
 				$args = array (
@@ -108,48 +110,52 @@ get_header();
 					wp_reset_postdata();
 				}
 				?>
+				</div>
 			</section>
 
 			<!-- Output 3 random blog posts -->
 			<section class="home-blog">
-				<h2>Recent Blog Posts</h2>
-				<?php 
-				$args = array(
-					'post_type' => 'post',
-					'posts_per_page' => 3
-				);
-				$blog_query = new WP_Query( $args );
-				if ( $blog_query -> have_posts() ) {
-					while ( $blog_query -> have_posts() ) {
-						$blog_query -> the_post();
-						?>
-						<article>
-							<?php the_post_thumbnail( 'thumbnail' ); ?>
-							<h3><?php the_title(); ?></h3>
-							<p><?php echo get_the_date(); ?></p>
-							<p><?php the_excerpt(); ?></p>
-							<p><a href="<?php the_permalink() ?>">Read More</a></p>
-						</article>
-						<?php
+				<div class="home-blog-wrapper">
+					<h2>Recent Blog Posts</h2>
+					<?php 
+					$args = array(
+						'post_type' => 'post',
+						'posts_per_page' => 3
+					);
+					$blog_query = new WP_Query( $args );
+					if ( $blog_query -> have_posts() ) {
+						while ( $blog_query -> have_posts() ) {
+							$blog_query -> the_post();
+							?>
+							<article>
+								<?php the_post_thumbnail( 'thumbnail' ); ?>
+								<h3><?php the_title(); ?></h3>
+								<p><?php echo get_the_date(); ?></p>
+								<p><?php the_excerpt(); ?></p>
+								<p><a href="<?php the_permalink() ?>">Read More</a></p>
+							</article>
+							<?php
+						}
+						wp_reset_postdata();
 					}
-					wp_reset_postdata();
-				}
-				?>
-				<p><a href="<?php the_permalink(57) ?>">Check out other posts</a></p>
+					?>
+					<p class="blog-posts-btn"><a href="<?php the_permalink(57) ?>" class="btn-border link-spacing">Check out other posts</a></p>
+				</div>
 			</section>
 
 			<!-- Output instagram feed -->
 			<section class="instagram">
-				<h2>Check out our instagram</h2>
-				<?php 
-				if ( function_exists( 'get_field' ) ) {
-					if ( get_field( 'instagram' ) ) {
-						the_field('instagram');
+				<div class="instagram-wrapper">
+					<h2>Check out our instagram</h2>
+					<?php 
+					if ( function_exists( 'get_field' ) ) {
+						if ( get_field( 'instagram' ) ) {
+							the_field('instagram');
+						};
 					};
-				};
-				?>
+					?>
+				</div>
 			</section>
-			</div>
 		<?php endwhile; ?>
 	</main><!-- #main -->
 

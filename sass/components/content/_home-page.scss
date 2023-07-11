@@ -1,11 +1,26 @@
 // Home Page
+.home .site {
+    @media(min-width: 50em) {
+        display: block;
+    }
+}
+
 .home .site-main {
     padding: 0rem;
+
     section {
         padding: 0rem 1.5rem;
+        @media(min-width: 50em) {
+            @include content-max-width;
+        }
+    }
+
+    h2, h3 {
+        text-transform: uppercase;
     }
 
     h2 {
+        text-align: center;
         font-size: 1.8rem;
         @media(min-width: 50em) {
             font-size: 2.2rem;
@@ -13,48 +28,6 @@
     }
 }
 
-.home-content-wrapper {
-    h2, h3 {
-        text-transform: uppercase;
-    }
-}
-
-@media screen and (min-width: 50em) {
-	.home .site {
-		display: grid;
-		grid-template-columns: 1fr minmax(0, 1000px) 1fr;
-		grid-template-areas:
-			"header header header"
-			"main main main"
-			"footer footer footer";
-    }
-
-    .home-content-wrapper {
-        display: grid;
-		grid-template-columns: 1fr minmax(0, 1000px) 1fr;
-        grid-template-areas: 
-        ". services ."
-        ". testimonials ."
-        ". blog ."
-        ". instagram .";
-    }
-
-    .home-popular-services {
-        grid-area: services;
-    }
-
-    .home-testimonials {
-        grid-area: testimonials;
-    }
-
-    .home-blog {
-        grid-area: blog;
-    }
-
-    .instagram {
-        grid-area: instagram;
-    }
-}
 
 // Hero image section
 .home-hero {
@@ -119,14 +92,13 @@
     padding: 4rem 1.5rem;
     text-align: center;
     font-weight: 400;
-    background-color: #f7f7f7;
+    background-color: $color__background-gray;
     h2 {
         margin-top: 0;
+        text-transform: capitalize;
     }
 
     @media(min-width:50em) {
-        display: grid;
-        grid-template-columns: 1fr minmax(auto, 1000px) 1fr;
         h2 {
             grid-column: 2/3;
         }
@@ -153,12 +125,13 @@
     li {
         list-style: none;
         margin-bottom: 2rem;
-        a {
-            text-transform: uppercase;
-        }
     }
 
-    @media(min-width: 50em) {
+    @media(min-width: 50em) {   
+        .home-services-wrapper {
+            grid-column: 2/3;
+        }
+
         h2 {
             text-align: left;
             margin-bottom: 4rem;
@@ -185,6 +158,15 @@
 }
 
 // Home Testimonials section
+.home-testimonials {
+    background-color: $color__background-gray;
+}
+
+.home-testimonials-wrapper {
+    @media(min-width: 50em) {
+        grid-column: 2/3;
+    }
+}
 .quotation {
     svg {
         border: 1px solid $color__text-header;
@@ -193,4 +175,55 @@
         width: 24px;
         height: auto;
     }
+}
+
+// Recent blog posts
+.home-blog-wrapper {
+    grid-column: 2/3;
+
+    article {
+        @include center-block;
+        max-width: 80%;
+        text-align: center;
+        margin-bottom: 3rem;
+        &:nth-child(2),
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+}
+
+.blog-posts-btn {
+    font-size: 0.7rem;
+    width: fit-content;
+    @include center-block;
+
+    @media(min-width: 31.25em) {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 50em) {
+    .home-blog-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        h2 {
+            width: 100%;
+        }
+
+        article {
+            max-width: 30%;
+            &:nth-child(2),
+            &:nth-child(3) {
+            display: block;
+            }
+        }
+    }
+}
+
+// Instagram section
+.instagram-wrapper {
+    grid-column: 2/3;
 }

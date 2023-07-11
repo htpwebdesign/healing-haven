@@ -263,7 +263,11 @@ add_filter( 'excerpt_length', 'hhm_excerpt_length', 999, 1 );
 
 // Changed excerpt more to a link
 function hhm_excerpt_more( $more ) {
-	$more = '... <a class="read-more" href="'. esc_url( get_permalink() ) .'">'. __( 'Continue Reading', 'hhm' ) .'</a>';
+	if(is_front_page()) {
+		$more = '...';
+	} else {
+		$more = '... <a class="read-more" href="'. esc_url( get_permalink() ) .'">'. __( 'Continue Reading', 'hhm' ) .'</a>';
+	}
 	return $more;
 }
 add_filter( 'excerpt_more', 'hhm_excerpt_more' );
