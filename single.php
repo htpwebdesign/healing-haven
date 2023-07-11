@@ -32,7 +32,7 @@ get_header();
 			if ( get_field( 'popular_services', 32 ) ) : 
 				$popular_services = get_field('popular_services', 32); ?>
 
-		<section class="single-popular-services">
+		<section class="popular-services">
 			<h2>Popular Services</h2>
 				<div class="swiper">
 					<div class="swiper-wrapper">
