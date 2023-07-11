@@ -2,17 +2,14 @@
     .site-main{
         .post-19{
             .entry-content{
-                .woocommerce{
-                    .woocommerce-MyAccount-navigation{
-                        ul{
-                            list-style: none;
-                            li{
-                                a{
-                                    text-decoration: none;
-                                }
-                            }                           
+                .woocommerce{        
+                    .woocommerce-MyAccount-content{
+                        min-height: 450px;
+                        .woocommerce-info{
+                            background-color: white;
+                            text-indent: 10px;
                         }
-                    }    
+                    }                   
                 }
             }
         }
