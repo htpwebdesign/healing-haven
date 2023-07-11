@@ -110,3 +110,30 @@
     }
   }
 }
+
+// Light Gray Background
+// Template:
+// <section class="home-intro" id="home-intro">
+//   (content)
+// </section>
+
+// .home-intro {
+//   @include gray-bg
+// }
+
+@mixin gray-bg {
+  position: relative;
+  &::before {
+      content:"";
+      background-color: $color__background-gray;
+      width: 2500px;
+      height: 100%;
+      position: absolute;
+      z-index: -1;
+      top:0;
+      left: 0;
+      @media(min-width: 62.5em) {
+          left: -30vw;
+      }
+  }
+}
