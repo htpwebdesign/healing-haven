@@ -27,10 +27,14 @@
             left: 50%;
         }
     }
-
+    
     .wc-tabs{
-        display: none;
-        visibility: hidden;
+        // display: none;
+        // visibility: hidden;
+        @media (min-width: 70rem) {
+            grid-column: 1/4;
+            grid-row: 4/5;
+        }
     }
 
     .product_meta{
