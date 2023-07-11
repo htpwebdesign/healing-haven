@@ -142,13 +142,14 @@ function healing_haven_scripts() {
 
 	// Enqueue services-nav on the Services page
 	if (is_shop() || is_account_page()) {
-	wp_enqueue_script(
-		'services-nav-scripts',
-		get_template_directory_uri() . '/js/services-nav.js',
-		array(),
-		'_S_VERSION',
-		true
-	);
+		wp_enqueue_script(
+			'services-nav-scripts',
+			get_template_directory_uri() . '/js/services-nav.js',
+			array(),
+			'_S_VERSION',
+			true
+		);
+	}
 
 	if (is_account_page()) {
 		wp_enqueue_script(
@@ -174,31 +175,30 @@ function healing_haven_scripts() {
 		'5.8.6', 
 		true);
 
-// slider - swiper files
-// need to add if statements here still
-		wp_enqueue_style(
-			'swiper-styles',
-			get_template_directory_uri() . '/css/swiper-bundle.css',
-			array(),
-			'9.3.1'
-		);
+	// slider - swiper files
+	// need to add if statements here still
+	wp_enqueue_style(
+		'swiper-styles',
+		get_template_directory_uri() . '/css/swiper-bundle.css',
+		array(),
+		'9.3.1'
+	);
 
-		wp_enqueue_script(
-			'swiper-scripts',
-			get_template_directory_uri().'/js/swiper-bundle.min.js',
-			array(),
-			'9.3.1',
-			true 
-		);
+	wp_enqueue_script(
+		'swiper-scripts',
+		get_template_directory_uri().'/js/swiper-bundle.min.js',
+		array(),
+		'9.3.1',
+		true 
+	);
 
-		wp_enqueue_script(
-			'swiper-settings',
-			get_template_directory_uri().'/js/swiper-settings.js',
-			array( 'swiper-scripts' ), 
-			_S_VERSION,
-			true
-		);
-}
+	wp_enqueue_script(
+		'swiper-settings',
+		get_template_directory_uri().'/js/swiper-settings.js',
+		array( 'swiper-scripts' ), 
+		_S_VERSION,
+		true
+	);
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
