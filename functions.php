@@ -141,7 +141,7 @@ function healing_haven_scripts() {
 	);
 
 	// Enqueue services-nav on the Services page
-	if (is_shop()) {
+	if (is_shop() || is_account_page()) {
 	wp_enqueue_script(
 		'services-nav-scripts',
 		get_template_directory_uri() . '/js/services-nav.js',
@@ -149,8 +149,16 @@ function healing_haven_scripts() {
 		'_S_VERSION',
 		true
 	);
-}
 
+	if (is_account_page()) {
+		wp_enqueue_script(
+			'account-scripts',
+			get_template_directory_uri() . '/js/my-account.js',
+			array(),
+			'_S_VERSION',
+			true
+		);
+	}
 
 	// Enqueue map on contact page
 	wp_enqueue_script(
@@ -190,6 +198,7 @@ function healing_haven_scripts() {
 			_S_VERSION,
 			true
 		);
+}
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
@@ -263,7 +272,71 @@ add_filter( 'excerpt_length', 'hhm_excerpt_length', 999, 1 );
 
 // Changed excerpt more to a link
 function hhm_excerpt_more( $more ) {
-	$more = '... <a class="read-more" href="'. esc_url( get_permalink() ) .'">'. __( 'Continue Reading', 'hhm' ) .'</a>';
+	if(is_front_page()) {
+		$more = '...';
+	} else {
+		$more = '... <a class="read-more" href="'. esc_url( get_permalink() ) .'">'. __( 'Continue Reading', 'hhm' ) .'</a>';
+	}
 	return $more;
 }
 add_filter( 'excerpt_more', 'hhm_excerpt_more' );
+
+//customizing account menu items
+function hhm_remove_default_account_navigation( $items ) {
+    $items = array();
+    return $items;
+}
+add_filter( 'woocommerce_account_menu_items', 'hhm_remove_default_account_navigation', 10 );
+
+// function remove_smart_coupons_from_my_account() {
+//     update_option( 'woocommerce_smart_coupon_show_my_account', 'no' );
+// }
+// add_action( 'init', 'remove_smart_coupons_from_my_account' );
+
+
+function hhm_customize_account_navigation() {
+	if ( is_account_page() ) {
+	?>
+	
+	<nav class="category-nav">
+		<button class="subnav-title" aria-controls="my-account-menu" aria-expanded="false">
+			<h3 id="account-navigation-title">Account Navigation</h3>
+			<svg aria-hidden="true" class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<path d="M7 10l5 5 5-5z"/>
+			</svg>
+		</button>	
+		<ul class="dropdown">
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'dashboard' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Dashboard'); ?></a>
+			</li>
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'orders' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Orders'); ?></a>
+			</li>
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'downloads' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Downloads'); ?></a>
+			</li>
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--bookings">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'bookings' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Bookings'); ?></a>
+			</li>
+			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--coupons">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'coupons' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Coupons'); ?></a>
+			</li> -->
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--addresses">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'edit-address' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Addresses'); ?></a>
+			</li>
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--payment-methods">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'payment-methods' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Payment Methods'); ?></a>
+			</li>
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--account-details">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'edit-account' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Account Details'); ?></a>
+			</li>
+			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
+				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'customer-logout' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Log Out'); ?></a>
+			</li>
+		</ul>
+</nav>
+<?php
+}
+}
+add_action( 'woocommerce_account_navigation', 'hhm_customize_account_navigation', 1 );
+
