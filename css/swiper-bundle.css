@@ -32,7 +32,7 @@ swiper-container {
   position: relative;
   overflow: hidden;
   list-style: none;
-  padding: 0rem 3rem 2rem;
+  padding: 0rem 2rem 2.5rem;
   /* Fix of Webkit flickering */
   z-index: 1;
   display: block;
@@ -361,7 +361,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .swiper-pagination-custom,
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: var(--swiper-pagination-bottom, 8px);
+  bottom: var(--swiper-pagination-bottom, 0px);
   top: var(--swiper-pagination-top, auto);
   left: 0;
   width: 100%;
