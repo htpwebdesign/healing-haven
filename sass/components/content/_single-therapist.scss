@@ -1,3 +1,7 @@
+.single-hhm-therapists .site-main {
+    overflow: visible;
+}
+
 .hhm-therapists {
     max-width: 30rem;
     margin: 0 auto;
@@ -20,10 +24,6 @@
             
         }
     }
-
-
-
-
 }
 
 .therapist-details {
@@ -46,6 +46,14 @@
         margin: 0 0.5rem 0 0;
         display: block;
     }
+}
 
-
+.therapist-testimonial {
+    @include gray-bg;
+    &::before {
+        left: -25vw;
+        @media(min-width: 62.5em) {
+            left: -40vw;
+        }
+    }
 }
