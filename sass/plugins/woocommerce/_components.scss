@@ -223,14 +223,15 @@ p.stars {
 .woocommerce-error,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-success;
 	clear: both;
 }
 
 .woocommerce-info,
 .woocommerce-noreviews,
 p.no-comments {
-	background-color: $woocommerce__color-info;
+	border: 1px dashed $woocommerce__color-info;
+	margin-bottom: .5rem;
+	padding: 1.2rem;
 }
 
 .woocommerce-error {
