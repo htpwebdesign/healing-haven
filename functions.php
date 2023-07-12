@@ -339,4 +339,3 @@ function hhm_customize_account_navigation() {
 }
 }
 add_action( 'woocommerce_account_navigation', 'hhm_customize_account_navigation', 1 );
-
