@@ -338,6 +338,7 @@ function hhm_customize_account_navigation() {
 <?php
 }
 }
+
 add_action( 'woocommerce_account_navigation', 'hhm_customize_account_navigation', 1 );
 
 
@@ -370,3 +371,4 @@ remove_action(
 
 }
 add_action( 'woocommerce_before_single_product', 'handleServices', 1 );
+
