@@ -20,7 +20,10 @@
 		?>
 	</header><!-- .entry-header -->
 
-	<?php healing_haven_post_thumbnail(); ?>
+	<?php 
+	// healing_haven_post_thumbnail(); 
+	the_post_thumbnail( 'portrait-therapist' );
+	?>
 
 	<div class="therapist-details">
 		<?php 
@@ -72,7 +75,7 @@
 		?>
 	</div>
 
-	<div class="entry-content">
+	<!-- <div class="entry-content"> -->
 		<?php
 		// Output therapist bio
 		if ( function_exists( 'get_field' ) ) {
@@ -164,7 +167,8 @@
 		);
 		?>
 
-	</div><!-- .entry-content -->
+	<!-- </div> -->
+	<!-- .entry-content -->
 
 	<!-- Call to action button -->
 
@@ -175,7 +179,4 @@
 	</div>
 
 
-	<footer class="entry-footer">
-		<?php healing_haven_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
