@@ -52,6 +52,13 @@
 	}
 }
 
+.payment_box {
+	fieldset {
+		border: 1px solid $color__text-main;
+		margin: 1rem 0;
+	}
+}
+
 
 @media screen and (min-width: 768px) {
 
