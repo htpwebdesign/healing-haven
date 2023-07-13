@@ -15,7 +15,7 @@ input[type="submit"] {
 	&:hover,
 	&:focus {
 		box-shadow: inset 0 0 0 2em $color__background-button-hover;
-
+		border: 1px solid $color__border-button;
 		color: $color__text-main;
 	}
 
