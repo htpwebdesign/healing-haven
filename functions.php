@@ -309,12 +309,12 @@ function hhm_customize_account_navigation() {
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'dashboard' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Dashboard'); ?></a>
 			</li>
-			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'orders' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Orders'); ?></a>
-			</li>
-			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
+			</li> -->
+			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'downloads' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Downloads'); ?></a>
-			</li>
+			</li> -->
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--bookings">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'bookings' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Bookings'); ?></a>
 			</li>
@@ -372,3 +372,9 @@ remove_action(
 }
 add_action( 'woocommerce_before_single_product', 'handleServices', 1 );
 
+function custom_woocommerce_message() {
+    // Modify the message here
+    $message = '<div class="woocommerce-message woocommerce-message--info woocommerce-inf">Your custom message content</div>';
+    return $message;
+}
+add_filter( 'woocommerce_add_message', 'custom_woocommerce_message' );
