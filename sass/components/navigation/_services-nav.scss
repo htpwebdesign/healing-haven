@@ -31,15 +31,12 @@
         display: flex;
         position: relative;
         background: $color__background-body;
+        font-weight: 600;
 
         @media (min-width: 68rem){
             display: none;
             visibility: none;
             }
-
-        h3{
-            margin: 0;
-        }
 
         &:focus{
             background: #eeeeee;
@@ -53,7 +50,7 @@
         margin: 0;
         width: 15rem;
         position: absolute;
-        top: 3.4rem;
+        top: 3.24rem;
         background: $color__background-body;
 
         @media (min-width: 68rem){
@@ -80,9 +77,10 @@
             border: solid 3px #000;
             border-top: none;
             padding: 0.8rem 0;
+            text-decoration: none;
 
-            &:focus{
-                background: #eeeeee;
+            &:focus, &:hover{
+                text-decoration: underline;
             }
 
         @media (min-width: 68rem){
