@@ -334,8 +334,37 @@ function hhm_customize_account_navigation() {
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'customer-logout' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Log Out'); ?></a>
 			</li>
 		</ul>
-</nav>
-<?php
-}
+	</nav>
+	<?php
+	}
 }
 add_action( 'woocommerce_account_navigation', 'hhm_customize_account_navigation', 1 );
+
+
+function handleServices(){
+
+	remove_action(
+		'woocommerce_before_single_product_summary',
+		'woocommerce_show_product_images',
+		20
+	);
+
+	remove_action(
+		'woocommerce_before_single_product_summary',
+		'woocommerce_show_product_sale_flash',
+		10
+	);
+
+	remove_action(
+		'woocommerce_single_product_summary',
+		'woocommerce_template_single_excerpt',
+		20
+	);
+
+	remove_action(
+		'woocommerce_single_product_summary',
+		'woocommerce_template_single_meta',
+		40
+	);
+}
+add_action( 'woocommerce_before_single_product', 'handleServices', 1 );
