@@ -14,4 +14,27 @@
             }
         }
     }
+    label{
+        font-weight: 700;
+        // padding-left: 16px;
+    }
+    input[type=text],
+    input[type=password],
+    input[type=email]{
+        max-width: 350px;
+        width: 100%;
+    }
+}
+
+.woocommerce-edit-account{
+    .woocommerce-EditAccountForm{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    text-align:"right";
+    .form-row-first,
+    .form-row-last,
+    .form-email{
+        margin-left: 1rem;
+    }
 }
