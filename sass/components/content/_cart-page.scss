@@ -46,7 +46,7 @@
     display: none;
 }
 
-table.shop_table_responsive {
+table.woocommerce-cart-form__contents {
     border-collapse: collapse;
     tr {
         td.product-quantity,
@@ -118,7 +118,7 @@ table.shop_table_responsive {
         text-align: left;
         padding: 2rem 0rem 1rem;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
 
         input[name=coupon_code] {
             width: 100%;
@@ -159,19 +159,30 @@ table.shop_table_responsive {
 }
 
 @media screen and (min-width: 48em) {
-    table.shop_table_responsive {
+    table.woocommerce-cart-form__contents {
         tr {
             th, td {
                 padding: 1rem;
             }
             th {
                 font-family: 'Playfiar Display', 'Times New Roman';
+                font-size: 1.5rem;
             }
             td.product-name {
                 text-align: left;
             }
             td.product-quantity {
                 display: none;
+            }
+        }
+    }
+
+    .cart_totals {
+        max-width: 600px;
+        @include center-block;
+        table.shop_table_responsive {
+            tr td {
+                text-align: right;
             }
         }
     }
