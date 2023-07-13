@@ -369,3 +369,19 @@ function handleServices(){
 	);
 }
 add_action( 'woocommerce_before_single_product', 'handleServices', 1 );
+
+// rename the 'Apply coupon" button on cart page
+function hhm_rename_coupon_field_on_cart( $translated_text, $text, $text_domain ) {
+	// bail if not modifying frontend woocommerce text
+	if ( is_admin() || 'woocommerce' !== $text_domain ) {
+		return $translated_text;
+	}
+
+	if ( 'Apply coupon' === $text ) {
+
+		$translated_text = 'Apply';
+	}
+
+	return $translated_text;
+};
+add_filter('gettext', 'hhm_rename_coupon_field_on_cart', 10, 3);
