@@ -47,7 +47,7 @@ do_action( 'woocommerce_before_main_content' );
 		?>
 			 <nav class="category-nav">
 				<button class="subnav-title" aria-controls="services-menu" aria-expanded="false">
-					<h3>Explore Our Massages</h3>
+					Explore Our Massages
 
 					<svg aria-hidden="true" class="accordion-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path d="M7 10l5 5 5-5z"/>
