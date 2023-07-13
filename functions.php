@@ -309,12 +309,12 @@ function hhm_customize_account_navigation() {
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'dashboard' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Dashboard'); ?></a>
 			</li>
-			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'orders' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Orders'); ?></a>
-			</li>
-			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
+			</li> -->
+			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'downloads' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Downloads'); ?></a>
-			</li>
+			</li> -->
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--bookings">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'bookings' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Bookings'); ?></a>
 			</li>
@@ -385,3 +385,4 @@ function hhm_rename_coupon_field_on_cart( $translated_text, $text, $text_domain 
 	return $translated_text;
 };
 add_filter('gettext', 'hhm_rename_coupon_field_on_cart', 10, 3);
+
