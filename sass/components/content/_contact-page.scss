@@ -59,21 +59,6 @@
                 }
             }
         }
-        .gform_button{
-            background: #313131;
-            padding: 1rem;
-            border: none;
-            margin: 0;
-            position: relative;
-            display: inline-block;
-            color: #fff;
-            opacity: 80%;
-            cursor: pointer;
-        &:hover{
-                opacity: 100%;
-                margin: 0;
-            }
-        }
         .gform_footer{
             justify-content: flex-end;
         }

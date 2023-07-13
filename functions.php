@@ -338,6 +338,7 @@ function hhm_customize_account_navigation() {
 	<?php
 	}
 }
+
 add_action( 'woocommerce_account_navigation', 'hhm_customize_account_navigation', 1 );
 
 
