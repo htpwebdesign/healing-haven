@@ -40,24 +40,23 @@ get_header();
 				<article class="therapist-item">						
 					<?php the_post_thumbnail( 'portrait-therapist' );?>
 					<h2><?php the_title(); ?></h2>
-					<p>
 					<?php
 						$specialties = get_the_terms(get_the_ID(), 'hhm-specialties');
 						if ($specialties) {
+							echo '<p><span>Specialty:</span> ';
 							$specialty_names = array();
 							foreach ($specialties as $specialty) {
 								$specialty_names[] = $specialty->name;
 							}
-							echo implode(' / ', $specialty_names);
+							echo implode(' / ', $specialty_names). '</p>';
 						}
 					?>
-					</p>
 
 						<?php
 						if ( function_exists( 'get_field' ) ) {
 							$days_available = get_field( 'days_available', get_the_ID() );
 							if ( $days_available ) {
-								echo '<p>Days Available: ';
+								echo '<p><span>Availability:</span> ';
 								$days = array();
 								foreach ( $days_available as $day ) {
 									$days[] = $day['days_available'];

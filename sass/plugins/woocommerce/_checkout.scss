@@ -1,8 +1,7 @@
-.woocommerce-checkout input {
+.woocommerce-checkout input:not(.input-checkbox) {
 	height: 2.25rem;
 	width: 100%;
 }
-	
 
 .woocommerce-checkout-review-order-table {
 	border-collapse: collapse;

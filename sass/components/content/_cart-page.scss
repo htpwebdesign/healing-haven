@@ -3,7 +3,8 @@
 
     .woocommerce-message {
         margin-bottom: 1rem;
-        border: 1px dotted $color__border;
+        border: 2px dotted $color__border;
+        padding: 1.5rem;
     }
 }
 
@@ -46,7 +47,7 @@
     display: none;
 }
 
-table.shop_table_responsive {
+table.woocommerce-cart-form__contents {
     border-collapse: collapse;
     tr {
         td.product-quantity,
@@ -82,6 +83,13 @@ table.shop_table_responsive {
         button[name=update_cart] {
             display: none;
         }
+
+        &.order-total {
+            font-family: 'Playfair Display', 'Times New Roman';
+            td::before {
+                font-weight: 700;
+            }
+        }
     }
 
     .variation {
@@ -111,7 +119,7 @@ table.shop_table_responsive {
         text-align: left;
         padding: 2rem 0rem 1rem;
         display: flex;
-        flex-wrap: wrap;
+        justify-content: center;
 
         input[name=coupon_code] {
             width: 100%;
@@ -127,18 +135,57 @@ table.shop_table_responsive {
             color: #fff;
             border-radius: 0;
             letter-spacing: 2.4px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             cursor: pointer;
+            border: 1px solid #fff;
+            &:hover {
+                color: #1a1a1a;
+            }
         }
     }
 }
 
+.woocommerce-cart .checkout-button {
+    @include link-button;
+    &::before {
+        z-index: -1;
+    }
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    width: fit-content;
+    margin-top: 4rem;
+    @include center-block;
+}
+
 @media screen and (min-width: 48em) {
-    table.shop_table_responsive {
+    table.woocommerce-cart-form__contents {
         tr {
+            th, td {
+                padding: 1rem;
+            }
+            th {
+                font-family: 'Playfiar Display', 'Times New Roman';
+                font-size: 1.5rem;
+            }
+            td.product-name {
+                text-align: left;
+            }
             td.product-quantity {
                 display: none;
             }
         }
     }
+
+    .cart_totals {
+        max-width: 600px;
+        @include center-block;
+        table.shop_table_responsive {
+            tr td {
+                text-align: right;
+            }
+        }
+    }
 }
+
