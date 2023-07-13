@@ -12,6 +12,17 @@
         margin: 0.5rem 0 1rem;
     }
 
+    #tab-reviews{
+        display: block;
+    }
+
+    .wc-bookings-booking-form .block-picker li a:hover,
+    .wc-bookings-booking-form .block-picker li a:focus,
+    .wc-bookings-booking-form .block-picker li a.selected
+    {
+        background: #313131 !important;
+    }
+
     .woocommerce-tabs{
 
         order: 3;
