@@ -69,6 +69,9 @@ get_header();
 				<section class="home-popular-services">
 						<h2>Popular Services</h2>
 						<?php get_template_part( 'template-parts/popular-services' ); ?>
+						<p class="more-services-btn">
+							<a href="<?php echo wc_get_page_permalink('shop') ?>" class="link-spacing">All Services</a>
+						</p>
 				</section>
 
 				<!-- Output 3 random testimonials -->
