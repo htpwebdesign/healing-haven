@@ -141,6 +141,18 @@
         margin-bottom: 2rem;
     }
 
+    .more-services-btn {
+        a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        @include link-button;
+        &::before {
+            z-index: -1;
+        }
+    }
+
     @media(min-width: 50em) {   
         h2 {
             text-align: left;
