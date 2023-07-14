@@ -70,7 +70,7 @@ get_header();
 						<h2>Popular Services</h2>
 						<?php get_template_part( 'template-parts/popular-services' ); ?>
 						<p class="more-services-btn">
-							<a href="<?php the_permalink(16) ?>" class="link-spacing">All Services</a>
+							<a href="<?php echo wc_get_page_permalink('shop') ?>" class="link-spacing">All Services</a>
 						</p>
 				</section>
 

@@ -148,7 +148,8 @@
             text-transform: uppercase;
         }
         @include link-button;
-        &::before {
+        &::before,
+        &::after {
             z-index: -1;
         }
     }
