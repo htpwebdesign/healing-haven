@@ -21,7 +21,7 @@ get_header();
 				<p><?php esc_html_e( 'It looks like nothing was found at this location.', 'healing-haven' ); ?></p>
 
 				<button class="button-container">
-			<a class="link-button" href="<?php echo esc_url( home_url( '/shop' ) ); ?>">
+			<a class="link-button" href="<?php echo wc_get_page_permalink('shop') ?>">
 				<span>Check Out Our Services</span>
 			</a>
 		</button>
