@@ -392,3 +392,11 @@ add_filter('gettext', 'hhm_rename_coupon_field_on_cart', 10, 3);
 //     return $commentdata;
 // }
 // add_filter('preprocess_comment', 'auto_approve_reviews');
+
+// Change placeholder text in Additional Notes on Checkout Page
+function hhm_custom_additional_info( $fields ) {
+	$fields['order']['order_comments']['label'] = 'Any special requests or additional info?';
+	$fields['order']['order_comments']['placeholder'] = 'Let us know here.';
+	return $fields;
+}
+add_filter( 'woocommerce_checkout_fields', 'hhm_custom_additional_info' );
