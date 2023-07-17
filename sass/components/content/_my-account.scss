@@ -17,12 +17,17 @@
     label{
         font-weight: 700;
         // padding-left: 16px;
+        display: block;
     }
     input[type=text],
     input[type=password],
     input[type=email]{
         max-width: 350px;
         width: 100%;
+    }
+
+    input[name=rememberme] {
+        margin-bottom: 1.5rem;
     }
 }
 
