@@ -1,0 +1,24 @@
+.page-id-18{
+    .site-main{
+        .woocommerce-order-overview{
+            margin: 0 0 1.5em 0;
+        }
+        .woocommerce-order-details{
+            tbody{
+                tr{
+                    td{
+                    text-align: center;
+                    }
+                }
+            }
+            tfoot{
+                th{
+                    text-align: right;
+                }
+                td{
+                    text-align: center;
+                }
+            }
+        }
+    }    
+}
