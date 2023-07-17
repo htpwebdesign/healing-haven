@@ -395,3 +395,38 @@ function hhm_custom_additional_info( $fields ) {
 	return $fields;
 }
 add_filter( 'woocommerce_checkout_fields', 'hhm_custom_additional_info' );
+
+// Create a block template for contact page
+function hhm_block_editor_templates() {
+	if ( isset($_GET['post']) && '37' == $_GET['post'] ) {
+		$post_type_object = get_post_type_object( 'page' );
+
+		$post_type_object->template = array(
+										array('gravityforms/form'),
+									);
+
+		$post_type_object->template_lock = 'all';
+	}
+
+	if ( isset($_GET['post']) && ('17' == $_GET['post'] || '18' == $_GET['post'] || '19' == $_GET['post']) ) {
+		$post_type_object = get_post_type_object( 'page' );
+
+		$post_type_object->template = array(
+										array('core/shortcode'),
+									);
+
+		$post_type_object->template_lock = 'all';
+	}
+}
+add_action('init', 'hhm_block_editor_templates');
+
+// Lock block editor for the following pages in the array
+function hhm_post_filter( $use_block_editor, $post ) {
+    $page_ids = array( 32, 34);
+    if ( in_array( $post->ID, $page_ids ) ) {
+        return false;
+    } else {
+        return $use_block_editor;
+    }
+}
+add_filter( 'use_block_editor_for_post', 'hhm_post_filter', 10, 2 );
