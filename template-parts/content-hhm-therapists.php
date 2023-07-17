@@ -147,6 +147,7 @@
 
 		<!-- Output availability calendar -->
 		<div class="therapist-availability-calendar">
+			<h2>Availability</h2>
 		<?php
 		the_content(
 			sprintf(
