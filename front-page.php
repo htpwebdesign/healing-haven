@@ -146,7 +146,7 @@ get_header();
 						}
 						?>
 						<p class="blog-posts-btn">
-							<a href="<?php the_permalink(57) ?>" class="btn-border link-spacing">Check out other posts</a>
+							<a href="<?php the_permalink(57) ?>" class="link-spacing">Check out other posts</a>
 						</p>
 				</section>
 

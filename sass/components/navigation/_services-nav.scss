@@ -26,7 +26,7 @@
         cursor: pointer;
         margin: 0;
         width: 15rem;
-        border: solid 3px #000;
+        border: solid 2px $color__text-header;
         padding: 1rem;
         display: flex;
         position: relative;
@@ -75,7 +75,7 @@
             display: block;
             width: 15rem;
             text-align: center;
-            border: solid 3px #000;
+            border: solid 2px $color__text-header;
             border-top: none;
             padding: 0.8rem 0;
             text-decoration: none;
