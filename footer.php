@@ -50,14 +50,18 @@
 							<li class="footer-item">
 								<a aria-label="instagram icon" title="instagram icon" target="_blank" rel="noopener" href="<?php echo $link ?>" ><?php
 								echo $icon
-							?></li><?php
+							?></a></li><?php
 							}
 							}
 					}
 			}
-			?><li class="footer-item">
+			?>
+			<li class="footer-item footer-policies-wrapper">
 			<a class="footer-policies" href="<?php echo esc_url( home_url( '/about#policies' ) ); ?>">
-				<span>Policies</span>
+				<span>Clinic Policies</span>
+			</a>
+			<a class="footer-privacy-policies" href="<?php echo esc_url( get_privacy_policy_url() ); ?>">
+				<span>Privacy Policies</span>
 			</a>
 			</li>
 		</ul>
