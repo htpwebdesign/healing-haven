@@ -46,7 +46,7 @@ function fwd_register_custom_post_types() {
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-groups',
         'supports'           => array( 'title', 'thumbnail', 'editor' ),
-        'template'           => array( array( 'woocommerce/bookings-availability-calendar-block' ) ),
+        'template'           => array( array( 'woocommerce/bookings-availability-schedule-block' ) ),
         'template_lock'      => 'all',
     );
 
