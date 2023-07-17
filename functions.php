@@ -258,11 +258,11 @@ add_filter( 'get_the_archive_title_prefix', 'hhm_archive_title_prefix' );
 // To remove the prefix for all archives on the site...
 // add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
 
-// function my_acf_google_map_api( $api ){
-//     $api['key'] = 'AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08';
-//     return $api;
-// }
-// add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+function my_acf_google_map_api( $api ){
+    $api['key'] = 'AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08';
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 // Change excerpt length to 20 words
 function hhm_excerpt_length( $length ) {
