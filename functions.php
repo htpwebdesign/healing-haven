@@ -386,3 +386,9 @@ function hhm_rename_coupon_field_on_cart( $translated_text, $text, $text_domain 
 };
 add_filter('gettext', 'hhm_rename_coupon_field_on_cart', 10, 3);
 
+// Automatically approve reviews maybe?
+// function auto_approve_reviews($commentdata) {
+//     $commentdata['comment_approved'] = 1;
+//     return $commentdata;
+// }
+// add_filter('preprocess_comment', 'auto_approve_reviews');

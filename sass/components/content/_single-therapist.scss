@@ -6,6 +6,13 @@
     max-width: 30rem;
     margin: 0 auto;
 
+    .wc-bookings-availability-event-table .wc-bookings-availability-item div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
     @media (min-width: 60rem) {
         display: grid;
         max-width: none;
@@ -117,4 +124,10 @@
             left: -40vw;
         }
     }
+}
+
+// Availability calendar
+.wc-bookings-availability-calendar-day {
+    max-height: 100px;
+    overflow: auto;
 }

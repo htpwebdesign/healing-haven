@@ -109,7 +109,7 @@ function initMap( $el ) {
         "elementType": "geometry.fill",
         "stylers": [
             {
-                "color": "#ff0000"
+                "color": "#7d3131"
             }
         ]
     },
@@ -169,7 +169,7 @@ function initMap( $el ) {
         "elementType": "geometry.stroke",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -187,7 +187,7 @@ function initMap( $el ) {
         "elementType": "labels.text",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -280,7 +280,7 @@ function initMap( $el ) {
         "elementType": "labels.text",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
@@ -289,7 +289,7 @@ function initMap( $el ) {
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
