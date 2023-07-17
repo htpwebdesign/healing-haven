@@ -21,19 +21,22 @@
 	</header><!-- .entry-header -->
 
 	<?php 
-	// healing_haven_post_thumbnail(); 
+
 	the_post_thumbnail( 'portrait-therapist' );
 	?>
 
 	<div class="therapist-details">
 		<?php 
+
 		// Output Therapist email
 		if ( function_exists( 'get_field' ) ) {
 			if ( get_field( 'therapist_email' ) ) { 
 				?>
 				<div class="email-wrapper">
-				<h3>Email:</h3>
-				<a href="mailto:<?php the_field('therapist_email'); ?>"><?php the_field('therapist_email'); ?></a>
+					<h3>Email:</h3>
+					<a href="mailto:<?php the_field('therapist_email'); ?>">
+						<?php the_field('therapist_email'); ?>
+					</a>
 				</div>
 			<?php
 			};
@@ -56,7 +59,9 @@
 		<?php
 		// Output Therapist Availabilities
 		if ( function_exists( 'get_field' ) ) {
+
 			if ( get_field( 'days_available' ) ) { 
+
 				$days_available = get_field( 'days_available');
 				$days_array = array();
 
@@ -75,11 +80,12 @@
 		?>
 	</div>
 
-	<!-- <div class="entry-content"> -->
 		<?php
 		// Output therapist bio
 		if ( function_exists( 'get_field' ) ) {
+
 			if ( get_field( 'therapist_bio' ) ) {
+
 				the_field('therapist_bio');
 			};
 		}; 
@@ -168,7 +174,6 @@
 		);
 		?>
 
-	<!-- </div> -->
 	<!-- .entry-content -->
 
 	<!-- Call to action button -->
@@ -178,6 +183,5 @@
 						<span>Check out other therapists</span>
 					</a>
 	</div>
-
-
-</article><!-- #post-<?php the_ID(); ?> -->
+	
+</article>

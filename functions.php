@@ -176,7 +176,6 @@ function healing_haven_scripts() {
 		true);
 
 	// slider - swiper files
-	// need to add if statements here still
 	wp_enqueue_style(
 		'swiper-styles',
 		get_template_directory_uri() . '/css/swiper-bundle.css',
