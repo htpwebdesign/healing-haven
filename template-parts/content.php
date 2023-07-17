@@ -25,12 +25,7 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				if ( is_singular () ):
 					healing_haven_posted_on();
-					healing_haven_posted_by();
-				else :
-					healing_haven_posted_on();
-				endif;
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
