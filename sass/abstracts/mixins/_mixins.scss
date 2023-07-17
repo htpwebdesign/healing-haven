@@ -118,10 +118,6 @@
 //   (content)
 // </section>
 
-// .home-intro {
-//   @include gray-bg
-// }
-
 @mixin gray-bg {
   position: relative;
   &::before {
