@@ -1,5 +1,9 @@
-.single-hhm-therapists .site-main {
-    overflow: hidden;
+.single-hhm-therapists {
+    overflow-x: hidden;
+
+    .site-main {
+        overflow: visible;
+    }
 }
 
 .hhm-therapists {
