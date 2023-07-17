@@ -215,10 +215,26 @@
 
 .blog-posts-btn {
     font-size: 0.7rem;
+    padding: 1.5rem 1.5rem;
     width: fit-content;
+    a {
+        color: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+    @include link-button;
+
     @include center-block;
+
+    &::before,
+    &::after {
+        z-index: -1;
+    }
+
     @media(min-width: 31.25em) {
         font-size: 1rem;
+        padding: 1.5rem 3rem;
     }
 }
 

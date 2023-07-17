@@ -62,25 +62,25 @@
 }
 
 .menu-toggle {
-  position: absolute;
-	padding: 0.8em 1em 0.4em;
-	top: 0;
-	z-index: 1100;
-  right: 0;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+	position: absolute;
+		padding: 0.8em 1em 0.4em;
+		top: 0;
+		z-index: 1100;
+	right: 0;
+	background: transparent;
+	border: none;
+	cursor: pointer;
 
-	&:hover,
-	&:focus {
-		box-shadow: none;
+		&:hover,
+		&:focus {
+			box-shadow: none;
+		}
+
+	svg {
+		fill: $color__text-header;
+			width: 40px;
+			height: auto;
 	}
-
-  svg {
-    fill: $color__text-header;
-		width: 40px;
-		height: auto;
-  }
 }
 
 .home .menu-toggle {
