@@ -441,3 +441,9 @@ function yoast_to_bottom(){
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+
+// Change continue shopping link to services page
+function hhm_change_continue_shopping() {
+	return wc_get_page_permalink( 'shop' );
+}
+add_filter( 'woocommerce_continue_shopping_redirect', 'hhm_change_continue_shopping' );
