@@ -139,7 +139,8 @@ table.woocommerce-cart-form__contents {
             cursor: pointer;
             border: 1px solid #fff;
             &:hover {
-                color: #1a1a1a;
+                color: $color__text-main;
+                border: 1px solid $color__text-main;
             }
         }
     }

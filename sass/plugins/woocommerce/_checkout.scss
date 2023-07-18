@@ -155,5 +155,17 @@
 				}
 			}
 		}
+		
+		.payment_box {
+			.wc-payment-form + fieldset {
+				border: none;
+			}
+
+			.woocommerce-SavedPaymentMethods-saveNew {
+				input {
+					height: auto;
+				}
+			}
+		}
 	}    
 }
