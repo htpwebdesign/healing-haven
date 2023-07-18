@@ -132,14 +132,15 @@ function healing_haven_scripts() {
 	}
 
 	// Enqueue accordion on the About page
-	wp_enqueue_script(
-		'accordion-scripts',
-		get_template_directory_uri() .'/js/accordion.js',
-		array(),
-		_S_VERSION,
-		true
-	);
-
+	if (is_page('about')){
+		wp_enqueue_script(
+			'accordion-scripts',
+			get_template_directory_uri() .'/js/accordion.js',
+			array(),
+			_S_VERSION,
+			true
+		);
+	}
 	// Enqueue services-nav on the Services page
 	if (is_shop() || is_account_page()) {
 		wp_enqueue_script(
