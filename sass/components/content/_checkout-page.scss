@@ -20,6 +20,10 @@
                 }
             }
         }
+
+        .payment_box .wc-payment-form + fieldset {
+            border:none;
+        }
     }    
 }
 

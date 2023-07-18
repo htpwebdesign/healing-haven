@@ -435,3 +435,9 @@ function hhm_post_filter( $use_block_editor, $post ) {
     }
 }
 add_filter( 'use_block_editor_for_post', 'hhm_post_filter', 10, 2 );
+
+// Move Yoast metabox to bottom
+function yoast_to_bottom(){
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
