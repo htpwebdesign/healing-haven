@@ -1,4 +1,5 @@
-.woocommerce-checkout input:not(.input-checkbox) {
+// checkout section
+.woocommerce-checkout input:not(.input-checkbox) :not(.woocommerce-SavedPaymentMethods-saveNew) {
 	height: 2.25rem;
 	width: 100%;
 }
@@ -79,4 +80,92 @@
 			@include column-width(2);
 		}
 	}
+}
+
+// order received section
+.page-id-18{
+	.site-main {
+		.woocommerce-notice {
+			text-align: center;
+		}
+
+		.woocommerce-order-overview {
+			max-width: 20rem;
+			margin: 0 auto 3.5rem;
+			list-style: none;
+			padding: 0;
+		}
+		
+		.woocommerce-order-details {
+			h2 {
+				text-align: center;
+				margin: 5rem 0 3rem;
+			}
+
+			.woocommerce-table--order-details {
+				border-collapse: collapse;
+			}
+
+			.wc-booking-summary {
+				border: none;
+
+				.wc-booking-summary-list {
+					padding: 0;
+				}
+			}
+
+			.status-paid {
+				display: none;
+			}
+
+			thead {
+
+				tr {
+					th {
+						border-bottom: 1px solid $color__text-main;
+						padding-bottom: 1.5rem;
+					}
+				}
+			}
+
+			tbody {
+				tr {
+					td {
+						text-align: center;
+						padding-top: 1.5rem;
+						border-bottom: 1px solid $color__text-main;
+
+						a {
+							font-family: $font__header;
+							font-weight: bolder;
+						}
+					}
+				}
+			}
+
+			tfoot {
+				th {
+					text-align: right;
+					padding-top: 1.5rem;
+				}
+
+				td {
+					text-align: center;
+					padding-top: 1.5rem;
+				}
+			}
+		}
+		
+		.payment_box {
+			.wc-payment-form + fieldset {
+				border: none;
+			}
+
+			.woocommerce-SavedPaymentMethods-saveNew {
+				input {
+					height: auto;
+				}
+			}
+		}
+	}    
 }
