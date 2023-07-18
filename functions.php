@@ -165,7 +165,7 @@ function healing_haven_scripts() {
 	if (is_page('contact') || is_page('edit-contact')) {
 	wp_enqueue_script(
 		'google-maps', 
-		'https://maps.googleapis.com/maps/api/js?key=AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08&map_ids=d751ae2754605c87&callback=Function.prototype', array(), 
+		'https://maps.googleapis.com/maps/api/js?key=AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08&callback=Function.prototype', array(), 
 		null, 
 		true);
 		
