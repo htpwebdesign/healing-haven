@@ -8,6 +8,7 @@
                 tr{
                     td{
                     text-align: center;
+
                     }
                 }
             }
@@ -17,6 +18,17 @@
                 }
                 td{
                     text-align: center;
+                }
+            }
+        }
+
+        .woocommerce-checkout-review-order-table tbody td.product-name {
+            font-family: $font__header;
+            font-weight: 700;
+            dl.variation {
+                font-family: $font__body;
+                dd {
+                    font-weight: 400;
                 }
             }
         }
