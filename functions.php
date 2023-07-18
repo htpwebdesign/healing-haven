@@ -168,12 +168,14 @@ function healing_haven_scripts() {
 		null, 
 		true);
 
+	if (is_page('contact') || is_page('edit-contact')) {		
     wp_enqueue_script(
 		'custom-map-script', 
 		get_template_directory_uri() . '/js/map.js', 
 		array('jquery'), 
 		'5.8.6', 
 		true);
+	}
 
 	// slider - swiper files
 	wp_enqueue_style(
