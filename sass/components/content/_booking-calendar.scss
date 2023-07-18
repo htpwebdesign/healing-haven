@@ -1,3 +1,6 @@
+.star-rating {
+    @include center-block;
+}
 .wc-bookings-date-picker {
     // Calendar header
     .ui-datepicker-header {
