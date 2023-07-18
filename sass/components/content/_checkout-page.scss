@@ -45,6 +45,9 @@
             }
         }
 
+        button#place_order {
+            @include center-block;
+        }
     }    
 }
 
