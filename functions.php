@@ -448,6 +448,8 @@ function hhm_change_continue_shopping() {
 }
 add_filter( 'woocommerce_continue_shopping_redirect', 'hhm_change_continue_shopping' );
 
+
+
 //Styling Wordpress Login
 function my_login_logo_url() {
     return home_url();
