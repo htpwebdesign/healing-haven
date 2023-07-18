@@ -132,14 +132,15 @@ function healing_haven_scripts() {
 	}
 
 	// Enqueue accordion on the About page
-	wp_enqueue_script(
-		'accordion-scripts',
-		get_template_directory_uri() .'/js/accordion.js',
-		array(),
-		_S_VERSION,
-		true
-	);
-
+	if (is_page('about')){
+		wp_enqueue_script(
+			'accordion-scripts',
+			get_template_directory_uri() .'/js/accordion.js',
+			array(),
+			_S_VERSION,
+			true
+		);
+	}
 	// Enqueue services-nav on the Services page
 	if (is_shop() || is_account_page()) {
 		wp_enqueue_script(
@@ -170,7 +171,7 @@ function healing_haven_scripts() {
 		true);
 		
     wp_enqueue_script(
-		'custom-map-script', 
+		'customMap', 
 		get_template_directory_uri() . '/js/map.js', 
 		array('jquery'), 
 		'5.8.6', 
@@ -178,28 +179,30 @@ function healing_haven_scripts() {
 	}
 
 	// slider - swiper files
-	wp_enqueue_style(
-		'swiper-styles',
-		get_template_directory_uri() . '/css/swiper-bundle.css',
-		array(),
-		'9.3.1'
-	);
+	if ( is_front_page() || is_singular( 'hhm-therapists' ) ) {
+		wp_enqueue_style(
+			'swiper-styles',
+			get_template_directory_uri() . '/css/swiper-bundle.css',
+			array(),
+			'9.3.1'
+		);
 
-	wp_enqueue_script(
-		'swiper-scripts',
-		get_template_directory_uri().'/js/swiper-bundle.min.js',
-		array(),
-		'9.3.1',
-		true 
-	);
+		wp_enqueue_script(
+			'swiper-scripts',
+			get_template_directory_uri().'/js/swiper-bundle.min.js',
+			array(),
+			'9.3.1',
+			true 
+		);
 
-	wp_enqueue_script(
-		'swiper-settings',
-		get_template_directory_uri().'/js/swiper-settings.js',
-		array( 'swiper-scripts' ), 
-		_S_VERSION,
-		true
-	);
+		wp_enqueue_script(
+			'swiper-settings',
+			get_template_directory_uri().'/js/swiper-settings.js',
+			array( 'swiper-scripts' ), 
+			_S_VERSION,
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'healing_haven_scripts' );
 
@@ -433,6 +436,17 @@ function hhm_post_filter( $use_block_editor, $post ) {
 }
 add_filter( 'use_block_editor_for_post', 'hhm_post_filter', 10, 2 );
 
+// Move Yoast metabox to bottom
+function yoast_to_bottom(){
+	return 'low';
+}
+add_filter( 'wpseo_metabox_prio', 'yoast_to_bottom' );
+
+// Change continue shopping link to services page
+function hhm_change_continue_shopping() {
+	return wc_get_page_permalink( 'shop' );
+}
+add_filter( 'woocommerce_continue_shopping_redirect', 'hhm_change_continue_shopping' );
 
 //Styling Wordpress Login
 function my_login_logo_url() {
