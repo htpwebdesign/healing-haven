@@ -396,11 +396,11 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .swiper-pagination-bullet {
   width: var(
     --swiper-pagination-bullet-width,
-    var(--swiper-pagination-bullet-size, 8px)
+    var(--swiper-pagination-bullet-size, 10px)
   );
   height: var(
     --swiper-pagination-bullet-height,
-    var(--swiper-pagination-bullet-size, 8px)
+    var(--swiper-pagination-bullet-size, 10px)
   );
   display: inline-block;
   border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
@@ -455,7 +455,7 @@ button.swiper-pagination-bullet {
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
 .swiper-pagination-horizontal.swiper-pagination-bullets
   .swiper-pagination-bullet {
-  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 6px);
 }
 .swiper-horizontal
   > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
