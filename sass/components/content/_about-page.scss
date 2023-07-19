@@ -69,15 +69,15 @@
 
   &-content {
     display: none;
-    padding: 1rem;
     text-align: left;
 
     ul {
       margin: 0;
-      padding-bottom: 2rem;
+      padding: 2rem 0 2rem 1rem;
 
       li {
         padding: 1rem 0;
+        line-height: 1.4rem;
       }
     }
   }
