@@ -465,3 +465,14 @@ function my_login_stylesheet() {
     wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/style-login.css' );
 }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+
+// Editing dashboard
+function hhm_remove_dashboard_widget() {
+	remove_meta_box('dashboard_primary', 'dashboard', 'side');
+	remove_meta_box('wc_admin_dashboard_setup', 'dashboard', 'normal');
+	remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
+	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');
+	remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'normal');
+	remove_meta_box('wpseo-wincher-dashboard-overview', 'dashboard', 'normal');
+}
+add_action( 'wp_dashboard_setup', 'hhm_remove_dashboard_widget' );
