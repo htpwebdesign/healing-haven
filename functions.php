@@ -179,7 +179,7 @@ function healing_haven_scripts() {
 	}
 
 	// slider - swiper files
-	if ( is_front_page() || is_singular( 'hhm-therapists' ) ) {
+	if ( is_front_page() || is_singular( 'hhm-therapists' ) || is_single() ) {
 		wp_enqueue_style(
 			'swiper-styles',
 			get_template_directory_uri() . '/css/swiper-bundle.css',

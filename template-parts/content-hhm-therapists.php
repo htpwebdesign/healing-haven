@@ -181,7 +181,7 @@
 
 	<div class="button-container">
 					<a class="link-button" href="<?php echo get_post_type_archive_link('hhm-therapists'); ?>">
-						<span>Check out other therapists</span>
+						<span>See other therapists</span>
 					</a>
 	</div>
 	

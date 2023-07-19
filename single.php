@@ -43,18 +43,22 @@ get_header();
 							$thumbnail = $service->get_image('portrait-therapist');
 							$permalink = $service->get_permalink();
 						?>
-						<div class="swiper-slide">
+						<div class="swiper-slide" id="swiper-slide">
+							<div class="swiper-service" >
 							<?php echo $thumbnail ?>
 							<h3><?php echo $title ?></h3>
 							<a class="btn-border" href="<?php echo esc_url($permalink) ?>">
 								More Info
 							</a>
 						</div>
+						</div>
 						<?php
 						endforeach;
 						?>
 					</div>
 					<div class="swiper-pagination"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
 				</div>
 			<?php 
 			endif;

@@ -122,3 +122,44 @@
 		padding-left: .5rem;
 	}
 }
+
+
+// Popular Services on single post
+.single-blog-post {
+
+	h3{
+		font-size: 1rem;
+
+		@media (min-width: 400px) {
+			font-size: 1.2rem;
+		}
+	}
+
+.swiper-button-next, 
+.swiper-button-prev {
+
+	top: 0;
+	bottom: 0;
+    margin: auto -12px;
+
+	@media (min-width: 600px) {
+	
+		margin: auto 0;
+	}
+
+
+}
+
+.swiper-autoheight{
+	max-width: 33rem;
+}
+
+
+.swiper-service{
+    border: 1px solid #CCCCCC;
+    max-width: 25rem;
+    margin: auto;
+    border-bottom: none;
+}
+
+}
