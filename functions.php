@@ -451,3 +451,16 @@ function hhm_remove_dashboard_widget() {
 	remove_meta_box('wpseo-wincher-dashboard-overview', 'dashboard', 'normal');
 }
 add_action( 'wp_dashboard_setup', 'hhm_remove_dashboard_widget' );
+
+// eliminate unnecessary buttons from the ACF WYSIWYG editors
+function hhm_toolbars( $toolbars ) {
+		// add 'Simple' toolbar
+    $toolbars['Simple'] = array();
+    $toolbars['Simple'][1] = array('bold', 'italic', 'underline', 'bullist');
+
+    // remove the 'Basic' toolbar completely
+    unset( $toolbars['Basic'] );
+
+    return $toolbars;
+}
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'hhm_toolbars'  );
