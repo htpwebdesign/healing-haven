@@ -16,25 +16,18 @@
     .wc-payment-form + fieldset {
       border: none;
     }
-
-    .woocommerce-SavedPaymentMethods-saveNew {
-      input {
-        height: auto;
-      }
-    }
   }
 
   button#place_order {
     @include center-block;
   }   
 
-  // checkout section
-  input:not(.input-checkbox):not(.input-radio) {
+  .input-text {
     height: 2.25rem;
     width: 100%;
   }
 
-    .woocommerce-checkout-review-order-table {
+  .woocommerce-checkout-review-order-table {
     border-collapse: collapse;
 
     thead {
@@ -83,30 +76,13 @@
   }
 
   .payment_box {
+    .wc-payment-form + fieldset {
+      border: none;
+    }
+
     fieldset {
       border: 1px solid $color__text-main;
       margin: 1rem 0;
-    }
-  }
-
-
-  @media screen and (min-width: 768px) {
-    .col2-set {
-
-      .form-row-first {
-        float: left;
-        margin-right: $columns__margin;
-      }
-
-      .form-row-last {
-        float: right;
-        margin-right: 0;
-      }
-
-      .form-row-first,
-      .form-row-last {
-        @include column-width(2);
-      }
     }
   }
 }
@@ -187,15 +163,26 @@
       }
     }
   }
-  
-  .payment_box {
-    .wc-payment-form + fieldset {
-      border: none;
+
+  .woocommerce-customer-details {
+    h2 {
+      text-align: center;
+      margin: 5rem 0 3rem;
     }
 
-    .woocommerce-SavedPaymentMethods-saveNew {
-      input {
-        height: auto;
+    address {
+      max-width: 20rem;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 50em) {
+    .woocommerce-customer-details {
+      address {
+        max-width: 100rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
       }
     }
   }

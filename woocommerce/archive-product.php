@@ -201,7 +201,7 @@ do_action( 'woocommerce_before_main_content' );
 
 		<button class="button-container">
 			<a class="link-button" href="<?php echo esc_url( home_url( '/about#policies' ) ); ?>">
-				<span>Check Out Our Policies</span>
+				<span>Check Out Policies</span>
 			</a>
 		</button>
 	</div>
