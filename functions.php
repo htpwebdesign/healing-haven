@@ -259,9 +259,6 @@ function hhm_archive_title_prefix( $prefix ){
 }
 add_filter( 'get_the_archive_title_prefix', 'hhm_archive_title_prefix' );
 
-// To remove the prefix for all archives on the site...
-// add_filter( 'get_the_archive_title_prefix', '__return_empty_string' );
-
 function my_acf_google_map_api( $api ){
     $api['key'] = 'AIzaSyDAdANZWDHKVSOgqX4ltgy5N6pEWAbxs08';
     return $api;
@@ -288,12 +285,6 @@ function hhm_remove_default_account_navigation( $items ) {
 }
 add_filter( 'woocommerce_account_menu_items', 'hhm_remove_default_account_navigation', 10 );
 
-// function remove_smart_coupons_from_my_account() {
-//     update_option( 'woocommerce_smart_coupon_show_my_account', 'no' );
-// }
-// add_action( 'init', 'remove_smart_coupons_from_my_account' );
-
-
 function hhm_customize_account_navigation() {
 	if ( is_account_page() ) {
 	?>
@@ -309,18 +300,9 @@ function hhm_customize_account_navigation() {
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'dashboard' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Dashboard'); ?></a>
 			</li>
-			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
-				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'orders' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Orders'); ?></a>
-			</li> -->
-			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
-				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'downloads' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Downloads'); ?></a>
-			</li> -->
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--bookings">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'bookings' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Bookings'); ?></a>
 			</li>
-			<!-- <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--coupons">
-				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'coupons' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Coupons'); ?></a>
-			</li> -->
 			<li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--addresses">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( 'edit-address' ) ); ?>" class="services-menu-link"><?php esc_html_e( 'Addresses'); ?></a>
 			</li>
@@ -385,13 +367,6 @@ function hhm_rename_coupon_field_on_cart( $translated_text, $text, $text_domain 
 	return $translated_text;
 };
 add_filter('gettext', 'hhm_rename_coupon_field_on_cart', 10, 3);
-
-// Automatically approve reviews maybe?
-// function auto_approve_reviews($commentdata) {
-//     $commentdata['comment_approved'] = 1;
-//     return $commentdata;
-// }
-// add_filter('preprocess_comment', 'auto_approve_reviews');
 
 // Change placeholder text in Additional Notes on Checkout Page
 function hhm_custom_additional_info( $fields ) {
