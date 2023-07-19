@@ -452,7 +452,7 @@ function hhm_remove_dashboard_widget() {
 }
 add_action( 'wp_dashboard_setup', 'hhm_remove_dashboard_widget' );
 
-// eliminate unnecessary buttons from the ACF WYSIWYG editors
+// Remove unnecessary buttons from the ACF WYSIWYG editors
 function hhm_toolbars( $toolbars ) {
 		// add 'Simple' toolbar
     $toolbars['Simple'] = array();
@@ -464,3 +464,7 @@ function hhm_toolbars( $toolbars ) {
     return $toolbars;
 }
 add_filter( 'acf/fields/wysiwyg/toolbars' , 'hhm_toolbars'  );
+
+// Block Editor Styles
+add_editor_style();
+add_theme_support( 'editor-styles' );
