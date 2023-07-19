@@ -1,5 +1,6 @@
 .login{
     background: #f7f7f7;
+    display: flex;
 }
 
 #wp-submit{
