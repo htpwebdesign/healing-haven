@@ -441,7 +441,9 @@ function my_login_stylesheet() {
 }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
-// Editing dashboard
+
+
+// Remove Dashboard Widgets
 function hhm_remove_dashboard_widget() {
 	remove_meta_box('dashboard_primary', 'dashboard', 'side');
 	remove_meta_box('wc_admin_dashboard_setup', 'dashboard', 'normal');
@@ -451,6 +453,46 @@ function hhm_remove_dashboard_widget() {
 	remove_meta_box('wpseo-wincher-dashboard-overview', 'dashboard', 'normal');
 }
 add_action( 'wp_dashboard_setup', 'hhm_remove_dashboard_widget' );
+
+// Add Dashboard Widgets
+function hhm_add_dashboard_widgets() {
+	add_meta_box(
+		'hhm_tutorials', 
+		'Tutorials', 
+		'hhm_tutorials',
+		'dashboard',
+		'side', 
+		'default',
+	);
+}
+add_action( 'wp_dashboard_setup', 'hhm_add_dashboard_widgets' );
+
+// Function to create a tutorial widget
+function hhm_tutorials() {
+	echo '<p>A List of tutorials to help navigate the backend of WordPress. Please do not delete these PDFs from the Media Library.</p>
+			<ul>
+				<li>
+					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/How-To-Add-A-New-Therapist-and-Resource.pdf" target="_blank">
+					How to add a new therapist and resource
+					</a>
+				</li>
+				<li>
+					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/Book-an-Appointment-for-a-Client.pdf" target="_blank">
+					How to add book an appointment for a client
+					</a>
+				</li>
+				<li>
+					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/Confirm-Payment-Upon-Arrival.pdf" target="_blank">
+					How to confirm the payment upon arrival
+					</a>
+				</li>
+				<li>
+					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/How-to-Create-a-New-Testimonial.pdf" target="_blank">
+					How to add a new testimonial for a therapist
+					</a>
+				</li>
+			</ul>';
+}
 
 // Remove unnecessary buttons from the ACF WYSIWYG editors
 function hhm_toolbars( $toolbars ) {
@@ -468,3 +510,4 @@ add_filter( 'acf/fields/wysiwyg/toolbars' , 'hhm_toolbars'  );
 // Block Editor Styles
 add_editor_style();
 add_theme_support( 'editor-styles' );
+
