@@ -20,11 +20,12 @@
 
 @mixin link-button {
   background: none;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
   border: none;
   margin: 0;
   position: relative;
   display: inline-block;
+  font-size: .8rem;
   cursor: pointer;
 
   span {

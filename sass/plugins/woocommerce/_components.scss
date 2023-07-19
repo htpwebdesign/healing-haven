@@ -235,7 +235,10 @@ p.no-comments {
 }
 
 .woocommerce-error {
-	background-color: $woocommerce__color-error;
+	list-style: none;
+	border: 1px dashed $woocommerce__color-error;
+	margin: 0 0 0.5rem;
+	padding: 1.2rem;
 }
 
 .demo_store {
