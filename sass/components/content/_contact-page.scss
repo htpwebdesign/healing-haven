@@ -61,4 +61,11 @@
         .gform_footer{
             justify-content: flex-end;
         }
+         #gform_fields_1 {
+            .gfield_required{
+                color:red;
+                opacity: 1;
+            }
+        }   
     }
+
