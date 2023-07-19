@@ -493,3 +493,21 @@ function hhm_tutorials() {
 				</li>
 			</ul>';
 }
+
+// Remove unnecessary buttons from the ACF WYSIWYG editors
+function hhm_toolbars( $toolbars ) {
+		// add 'Simple' toolbar
+    $toolbars['Simple'] = array();
+    $toolbars['Simple'][1] = array('bold', 'italic', 'underline', 'bullist');
+
+    // remove the 'Basic' toolbar completely
+    unset( $toolbars['Basic'] );
+
+    return $toolbars;
+}
+add_filter( 'acf/fields/wysiwyg/toolbars' , 'hhm_toolbars'  );
+
+// Block Editor Styles
+add_editor_style();
+add_theme_support( 'editor-styles' );
+

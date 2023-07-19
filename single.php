@@ -48,7 +48,7 @@ get_header();
 							<?php echo $thumbnail ?>
 							<h3><?php echo $title ?></h3>
 							<a class="btn-border" href="<?php echo esc_url($permalink) ?>">
-								More Info
+								More Info<span class="screen-reader-text">about <?php echo $title ?></span>
 							</a>
 						</div>
 						</div>
@@ -57,8 +57,6 @@ get_header();
 						?>
 					</div>
 					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
 				</div>
 			<?php 
 			endif;

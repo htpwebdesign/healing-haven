@@ -1,6 +1,5 @@
 .page-id-37 {
     .site-main{
-
         &
         h1,h2,h3,h4,h5,h6{
             text-align: center;
@@ -16,7 +15,7 @@
             max-width: 400px;
             margin: 0 auto;
         }
-        }
+    }
         .contact-phone,
         .contact-email,
         .contact-hours{
@@ -61,4 +60,18 @@
         .gform_footer{
             justify-content: flex-end;
         }
-    }
+
+        .gform_confirmation_message{
+
+            text-align: center;
+            font-size: 1rem;
+            margin: 5rem 0 1rem;
+        }
+        
+        #gform_fields_1 {
+            .gfield_required{
+                color:red;
+                opacity: 1;
+            }
+        }   
+}
