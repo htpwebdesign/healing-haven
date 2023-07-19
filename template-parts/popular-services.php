@@ -26,7 +26,7 @@
 					<div class="service-content">
 						<h3><?php echo $title ?></h3>
 						<a class="btn-border link-spacing" href="<?php echo esc_url($permalink) ?>">
-							More Info
+							More Info<span class="screen-reader-text">about <?php echo $title ?></span>
 						</a>
 					</div>
 				</li>
