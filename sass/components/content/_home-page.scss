@@ -261,7 +261,11 @@
 }
 
 // Instagram section
-.instagram {
+.home .instagram {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+
+    #sb_instagram .sbi_follow_btn a:hover {
+        box-shadow: inset 0 0 10px 20px #616161;
+    }
 }
