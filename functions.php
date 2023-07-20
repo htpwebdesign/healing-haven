@@ -469,7 +469,7 @@ add_action( 'wp_dashboard_setup', 'hhm_add_dashboard_widgets' );
 
 // Function to create a tutorial widget
 function hhm_tutorials() {
-	echo '<p>A List of tutorials to help navigate the backend of WordPress. Please do not delete these PDFs from the Media Library.</p>
+	echo '<p>A List of tutorials to help navigate the backend of WordPress.</p>
 			<ul>
 				<li>
 					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/How-To-Add-A-New-Therapist-and-Resource.pdf" target="_blank">
@@ -489,6 +489,11 @@ function hhm_tutorials() {
 				<li>
 					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/How-to-Create-a-New-Testimonial.pdf" target="_blank">
 					How to add a new testimonial for a therapist
+					</a>
+				</li>
+				<li>
+					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/How-to-Add-a-New-Service.pdf" target="_blank">
+					How to add a new service
 					</a>
 				</li>
 			</ul>';
@@ -511,3 +516,8 @@ add_filter( 'acf/fields/wysiwyg/toolbars' , 'hhm_toolbars'  );
 add_editor_style();
 add_theme_support( 'editor-styles' );
 
+function remove_short_description() {
+	remove_meta_box( 'postexcerpt', 'product', 'normal');
+}
+
+add_action('add_meta_boxes', 'remove_short_description', 999);
