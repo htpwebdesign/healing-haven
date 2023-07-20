@@ -451,6 +451,7 @@ function hhm_remove_dashboard_widget() {
 	remove_meta_box('rg_forms_dashboard', 'dashboard', 'normal');
 	remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'normal');
 	remove_meta_box('wpseo-wincher-dashboard-overview', 'dashboard', 'normal');
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
 }
 add_action( 'wp_dashboard_setup', 'hhm_remove_dashboard_widget' );
 
@@ -462,10 +463,38 @@ function hhm_add_dashboard_widgets() {
 		'hhm_tutorials',
 		'dashboard',
 		'side', 
-		'default',
+		'high',
 	);
+
+	wp_add_dashboard_widget(
+		'hhm_dashboard_message',
+		'Welcome!',
+		'hhm_dashboard_welcome'
+	);
+
+	global $wp_meta_boxes;
+
+	$default_dashboard = $wp_meta_boxes['dashboard']['normal']['core'];
+
+	$widget_backup = array( 'hhm_dashboard_message' => $default_dashboard['hhm_dashboard_message'] );
+	unset( $default_dashboard['hhm_dashboard_message'] );
+
+	$sorted_dashboard = array_merge( $widget_backup, $default_dashboard );
+
+	$wp_meta_boxes['dashboard']['normal']['core'] = $sorted_dashboard;
 }
 add_action( 'wp_dashboard_setup', 'hhm_add_dashboard_widgets' );
+
+// Function to display welcome message
+function hhm_dashboard_welcome() {
+	echo '<h3>Welcome to your Healing Haven dashboard.</h3>
+			<p>For any help related to your custom WordPress website, please refer to the documentation in the Tutorials widget on the right side.</p>
+			<p>For any general questions or help regarding WordPress or WooCommerce, please refer to their documentation:</p>
+			<ul>
+				<li><a href="https://wordpress.org/documentation/" target="_blank">WordPress Documentation</a></li>
+				<li><a href="https://woocommerce.com/docs/" target="_blank">WooCommerce Documentation</a></li>
+			</ul>';
+}
 
 // Function to create a tutorial widget
 function hhm_tutorials() {
@@ -478,7 +507,7 @@ function hhm_tutorials() {
 				</li>
 				<li>
 					<a href="https://healinghaven.bcitwebdeveloper.ca/wp-content/uploads/2023/07/Book-an-Appointment-for-a-Client.pdf" target="_blank">
-					How to add book an appointment for a client
+					How to book an appointment for a client
 					</a>
 				</li>
 				<li>
